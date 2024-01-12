@@ -1,16 +1,27 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/order */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-shadow */
 /* eslint-disable import/no-absolute-path */
 /* eslint-disable react/button-has-type */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/react-in-jsx-scope */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './assets/styles/App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import asyncPopulateThunkMiddleware from './store/shared/asyncPopulateThunkMiddleware';
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const { users, threads, leaderBoards } = useSelector((states) => states);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(asyncPopulateThunkMiddleware());
+  }, [dispatch]);
+
   return (
     <>
       <div>
