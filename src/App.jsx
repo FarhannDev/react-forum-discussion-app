@@ -16,15 +16,15 @@ import AuthLayout from './layouts/AuthLayout';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import ErrorPage from './pages/ErrorPage';
+import AppLayout from './layouts/AppLayout';
 
 export default function App() {
-  const [count, setCount] = useState(0);
   const { users, threads, leaderBoards, authUser } = useSelector(
     (states) => states
   );
   const dispatch = useDispatch();
 
-  const [isAuth, setIsAuth] = useState(null);
+  const [isAuth, setIsAuth] = useState(true);
 
   useEffect(() => {
     dispatch(asyncPopulateThunkMiddleware());
@@ -43,12 +43,12 @@ export default function App() {
   );
 
   const privateRoute = (
-    <main>
+    <AppLayout>
       <Routes>
         <Route path="/" element={<div>Hello World</div>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-    </main>
+    </AppLayout>
   );
 
   return !isAuth ? publicRoute : privateRoute;

@@ -1,0 +1,26 @@
+.search-bar-item {
+  width: 100%;
+  height: auto;
+}
+
+.search-bar-item .form-control {
+  display: flex;
+  width: 386px;
+  height: 40px;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  border: 0.917px solid var(--Font-400, #888);
+  color: var(--Font-300, #b0b0b0);
+}
+.search-bar-item .form-control,
+input[type='text'] {
+  color: var(--Font-600, #5d5d5d);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: capitalize;
+}

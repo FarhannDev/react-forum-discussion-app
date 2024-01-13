@@ -27,6 +27,14 @@ body {
   min-height: 100vh; */
 }
 
+.app-content-main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
 .content-heading {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -56,6 +64,35 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 450px;
+  height: auto;
   flex-shrink: 0;
+}
+
+@media (min-width: 1200px) {
+  .page-notfound-container .page-notfound-images {
+    height: 450px;
+    flex-shrink: 0;
+  }
+}
+
+.btn-toggle-color-mode {
+  border: 0;
+  outline: 0;
+  background: none;
+}
+
+.locale-codename {
+  color: var(--Font-600, #5d5d5d);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px;
+  text-transform: uppercase;
+}
+
+.profile-images {
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 40px;
 }
