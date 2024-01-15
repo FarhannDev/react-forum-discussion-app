@@ -22,6 +22,7 @@ import HomePage from './pages/HomePage';
 import ThredNewPage from './pages/threads/ThreadNewPage';
 import ThreadIndexPage from './pages/threads/ThreadIndexPage';
 import ThreadDetailPage from './pages/threads/ThreadDetailPage';
+import LeaderBoardIndexPage from './pages/leaderboards/LeaderBoardIndexPage';
 
 export default function App() {
   const { users, threads, leaderBoards, authUser } = useSelector(
@@ -58,6 +59,8 @@ export default function App() {
         <Route path="/threads" element={<ThreadIndexPage />} />
         <Route path="/threads/:id" element={<ThreadDetailPage />} />
         <Route path="/threads/new" element={<ThredNewPage />} />
+
+        <Route path="/leaderboards" element={<LeaderBoardIndexPage />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

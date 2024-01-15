@@ -1,0 +1,109 @@
+.leaderboards-card-item {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 0.837px solid var(--Font-200, #d1d1d1);
+  background: var(--Background, #fff);
+  padding: 20px;
+}
+.leaderboards-card-item .leaderboard-list {
+  width: 100%;
+  height: auto;
+  margin-bottom: 13px;
+}
+
+.leaderboards-card-item .leaderboard-list .leaderboard-list-item {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+  /* border: 1px solid black; */
+}
+
+.leaderboards-card-item
+  .leaderboard-list
+  .leaderboard-list-item
+  .leaderboard-list-item__user {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  /* overflow: hidden; */
+  color: var(--Font-600, #5d5d5d);
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.016px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.leaderboards-card-item
+  .leaderboard-list
+  .leaderboard-list-item
+  .leaderboard-list-item__user-score {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  /* overflow: hidden; */
+  color: var(--Font-600, #5d5d5d);
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.016px;
+  margin-bottom: 20px;
+}
+
+.leaderboard-list-item__user-avatar {
+  border-radius: 50%;
+  width: 45px;
+  vertical-align: middle;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 8px;
+}
+
+.leaderboard-heading__name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  /* overflow: hidden; */
+  color: var(--Font-600, #5d5d5d);
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.016px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.leaderboard-heading__score {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  /* overflow: hidden; */
+  color: var(--Font-600, #5d5d5d);
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.016px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
