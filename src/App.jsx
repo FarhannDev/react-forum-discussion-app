@@ -18,6 +18,11 @@ import RegisterPage from './pages/auth/RegisterPage';
 import ErrorPage from './pages/ErrorPage';
 import AppLayout from './layouts/AppLayout';
 
+import HomePage from './pages/HomePage';
+import ThredNewPage from './pages/threads/ThreadNewPage';
+import ThreadIndexPage from './pages/threads/ThreadIndexPage';
+import ThreadDetailPage from './pages/threads/ThreadDetailPage';
+
 export default function App() {
   const { users, threads, leaderBoards, authUser } = useSelector(
     (states) => states
@@ -45,7 +50,15 @@ export default function App() {
   const privateRoute = (
     <AppLayout>
       <Routes>
-        <Route path="/" element={<div>Hello World</div>} />
+        <Route
+          path="/"
+          element={<HomePage threads={threads} users={users} />}
+        />
+
+        <Route path="/threads" element={<ThreadIndexPage />} />
+        <Route path="/threads/:id" element={<ThreadDetailPage />} />
+        <Route path="/threads/new" element={<ThredNewPage />} />
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AppLayout>

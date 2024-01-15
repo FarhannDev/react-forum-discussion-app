@@ -1,0 +1,7 @@
+.thread-card-category-item {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 0.837px solid var(--Font-200, #d1d1d1);
+  background: var(--Background, #fff);
+}

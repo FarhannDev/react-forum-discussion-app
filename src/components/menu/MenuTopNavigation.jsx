@@ -41,7 +41,7 @@ export default function MenuTopNavigation() {
       <Link
         key={idx}
         to={menu.link}
-        className="mx-md-3 nav-link"
+        className="mx-md-2 nav-link"
         title={menu.title}
       >
         {/* <FiHome fontSize={26} /> */}
@@ -58,7 +58,7 @@ export default function MenuTopNavigation() {
           <SearchBar />
         </Nav>
         <div className="d-flex justify-content-start d-none d-lg-flex">
-          <button
+          {/* <button
             type="button"
             title="Ubah Bahasa Perangkat"
             className="btn-toggle-color-mode d-none d-lg-block "
@@ -69,7 +69,7 @@ export default function MenuTopNavigation() {
               </span>
               <span className="locale-codename">ID</span>
             </Stack>
-          </button>
+          </button> */}
           <button
             type="button"
             title="Ubah Bahasa Perangkat"

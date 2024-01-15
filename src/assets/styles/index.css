@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,15 +20,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   min-height: 100vh;
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
 }
 
 .app-content-main {
-  width: 100%;
+  width: 1000px;
+  margin: 0 auto;
   height: auto;
   overflow: hidden;
   padding-top: 7rem;
@@ -95,4 +91,158 @@ body {
   border-radius: 50%;
   vertical-align: middle;
   width: 40px;
+}
+
+.thread-card-new {
+  width: 100%;
+  height: auto;
+  /* height: 100px; */
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 0.837px solid var(--Font-200, #d1d1d1);
+  background: var(--Background, #fff);
+}
+
+.thread-card-new .form-control {
+  width: 1200px;
+  height: 40px;
+  background: #fff;
+  margin-top: 10px;
+  /* box-shadow: 0px 0.917px 0.917px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 0.917px rgba(103, 110, 118, 0.16),
+    0px 1.833px 4.583px 0px rgba(103, 110, 118, 0.08); */
+  border-radius: 22px;
+  border: 0.917px solid var(--Font-400, #888);
+}
+.thread-card-new .form-control:hover {
+  cursor: pointer;
+}
+
+.thread-card-new .form-control,
+input[type='text'] {
+  color: var(--Font-600, #5d5d5d);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 14.4px */
+}
+
+.thread-card-new .thread-card-new__avatar {
+  border-radius: 50%;
+  width: 45px;
+  vertical-align: middle;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.thread-card-form-input {
+  width: 100%;
+  background: #fff;
+  margin-top: 10px;
+  box-shadow: 0px 0.917px 0.917px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 0.917px rgba(103, 110, 118, 0.16),
+    0px 1.833px 4.583px 0px rgba(103, 110, 118, 0.08);
+  border-radius: 12px;
+  padding: 20px 0 20px 0;
+}
+
+.thread-card-form-input .form-control {
+  display: flex;
+  height: 50px;
+  padding: 12px;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid var(--Primary, #545f71);
+  background: var(--White, #fff);
+  color: var(--Font-800, #454545);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+
+.thread-card-form-input .form-control::placeholder {
+  font-family: Poppins;
+  font-size: 18px;
+  color: var(--Font-800, #454545);
+}
+
+.thread-card-form-input .form-label {
+  color: var(--Font-800, #454545);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.thread-card-form-input .thread-form-input__textarea {
+  /* display: flex; */
+  padding: 12px;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--Primary, #545f71);
+  background: var(--White, #fff);
+  color: var(--Font-800, #454545);
+  /* Font/Body 2 */
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+  height: 250px;
+  overflow: auto;
+}
+
+@media (min-width: 1200px) {
+  .content-heading {
+    font-size: 22px;
+  }
+}
+
+.comments-form-input__textarea {
+  /* display: flex; */
+  padding: 12px;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid var(--Primary, #545f71);
+  background: var(--White, #fff);
+  color: var(--Font-800, #454545);
+  /* Font/Body 2 */
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  text-transform: capitalize;
+}
+
+.comment-empty-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.comment-empty-container .comment-empty-images {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 450px;
+  height: auto;
 }

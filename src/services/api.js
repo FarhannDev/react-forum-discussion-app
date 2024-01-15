@@ -123,9 +123,9 @@ const api = (() => {
     }
   };
 
-  const getThreadsDetail = async (id) => {
+  const getThreadsDetail = async (threadId) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/threads/${id}`);
+      const response = await fetch(`${API_BASE_URL}/threads/${threadId}`);
       // Periksa apakah responsenya sukses (status code 200-299)
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);

@@ -7,12 +7,12 @@ import ActionType from '../../constants/ActionTypes';
 import api from '../../services/api';
 
 const receiveDetailThreadActionCreator = (detailThread) => ({
-  type: ActionType.RECEIVE_THREAD_DETAIL,
+  type: ActionType.RECEIVE_DETAIL_THREAD,
   payload: { detailThread },
 });
 
 const clearDetailThreadActionCreator = () => ({
-  type: ActionType.CLEAR_THREAD_DETAIL,
+  type: ActionType.CLEAR_DETAIL_THREAD,
 });
 
 const asyncReceiveDetailThread = (threadId) => async (dispatch) => {
