@@ -3,11 +3,11 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 
 const receiveUsersActionCreator = (users) => ({
-  type: ActionType.USERS_RECEIVE,
+  type: ActionType.RECEIVE_USERS,
   payload: { users },
 });
 

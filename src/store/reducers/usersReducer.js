@@ -1,8 +1,8 @@
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 
 const usersReducer = (users = [], action = {}) => {
   switch (action.type) {
-    case ActionType.USERS_RECEIVE:
+    case ActionType.RECEIVE_USERS:
       return action.payload.users;
     default:
       return users;

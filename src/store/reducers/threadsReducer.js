@@ -1,14 +1,14 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable consistent-return */
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 
 const threadsReducer = (threads = [], action = {}) => {
   switch (action.type) {
-    case ActionType.THREADS_RECEIVE:
+    case ActionType.RECEIVE_THREADS:
       return action.payload.threads;
-    case ActionType.THREADS_ADD:
+    case ActionType.ADD_THREADS:
       return [...action.payload.thread, ...threads];
-    case ActionType.THREADS_UP_VOTE:
+    case ActionType.UP_VOTE_THREADS:
       return threads?.map((thread) => {
         if (thread.id === action.payload.threadId) {
           return {
@@ -23,7 +23,7 @@ const threadsReducer = (threads = [], action = {}) => {
         }
         return thread;
       });
-    case ActionType.THREAD_DOWN_VOTE:
+    case ActionType.DOWN_VOTE_THREADS:
       return threads?.map((thread) => {
         if (thread.id === action.payload.threadId) {
           return {
@@ -39,7 +39,7 @@ const threadsReducer = (threads = [], action = {}) => {
         return thread;
       });
 
-    case ActionType.THREAD_NEUTRAL_VOTE:
+    case ActionType.CLEAR_VOTE_THREADS:
       return threads?.map((thread) => {
         if (thread.id === action.payload.threadId) {
           return {

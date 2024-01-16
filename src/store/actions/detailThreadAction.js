@@ -6,18 +6,7 @@
 
 // import ActionType from '../../constants/ActionTypes';
 import api from '../../services/api';
-
-export const ActionType = {
-  RECEIVE_THREAD_DETAIL: 'RECEIVE_THREAD_DETAIL',
-  CLEAR_THREAD_DETAIL: 'CLEAR_THREAD_DETAIL',
-  UP_VOTE_THREAD_DETAIL: 'UP_VOTE_THREAD_DETAIL',
-  DOWN_VOTE_THREAD_DETAIL: 'DOWN_VOTE_THREAD_DETAIL',
-  CLEAR_VOTE_THREAD_DETAIL: 'CLEAR_VOTE_THREAD_DETAIL',
-  ADD_COMMENT: 'ADD_COMMENT',
-  UP_VOTE_COMMENT: 'UP_VOTE_COMMENT',
-  DOWN_VOTE_COMMENT: 'DOWN_VOTE_COMMENT',
-  CLEAR_VOTE_COMMENT: 'CLEAR_VOTE_COMMENT',
-};
+import ActionType from '../../constants/ActionType';
 
 export const receiveThreadDetailActionCreator = (detailThread) => ({
   type: ActionType.RECEIVE_THREAD_DETAIL,
@@ -34,7 +23,7 @@ export const toggleUpVoteThreadDetailActionCreator = (userId) => ({
 });
 
 export const toggleDownVoteThreadDetailActionCreator = (userId) => ({
-  type: ActionType.DOWN_VOTE_COMMENT,
+  type: ActionType.DOWN_VOTE_THREAD_DETAIL,
   payload: { userId },
 });
 
@@ -44,12 +33,12 @@ export const clearVoteThreadDetailActionCreator = (userId) => ({
 });
 
 export const addCommentActionCreator = (comment) => ({
-  type: ActionType.ADD_COMMENT,
+  type: ActionType.ADD_THREAD_COMMENT,
   payload: { comment },
 });
 
 export const toggleUpVoteThreadCommentActionCreator = (userId, commentId) => ({
-  type: ActionType.UP_VOTE_COMMENT,
+  type: ActionType.UP_VOTE_COMMENT_THREAD,
   payload: { userId, commentId },
 });
 
@@ -57,7 +46,7 @@ export const toggleDownVoteThreadCommentActionCreator = (
   userId,
   commentId
 ) => ({
-  type: ActionType.DOWN_VOTE_COMMENT,
+  type: ActionType.DOWN_VOTE_COMMENT_THREAD,
   payload: { userId, commentId },
 });
 
@@ -65,7 +54,7 @@ export const toggleClearVoteThreadCommentActionCreator = (
   userId,
   commentId
 ) => ({
-  type: ActionType.CLEAR_VOTE_COMMENT,
+  type: ActionType.CLEAR_VOTE_COMMENT_THREAD,
   payload: { userId, commentId },
 });
 

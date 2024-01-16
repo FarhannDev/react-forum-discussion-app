@@ -1,8 +1,8 @@
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 
 const leaderBoardsReducer = (leaderboards = [], action = {}) => {
   switch (action.type) {
-    case ActionType.LEADERBOARDS_RECEIVE:
+    case ActionType.RECEIVE_LEADERBOARDS:
       return action.payload.leaderboards;
     default:
       return leaderboards;

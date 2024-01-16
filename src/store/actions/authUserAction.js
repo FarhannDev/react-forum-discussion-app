@@ -3,7 +3,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 
 const setAuthUserActionCreator = (authUser) => ({
@@ -12,7 +12,7 @@ const setAuthUserActionCreator = (authUser) => ({
 });
 
 const unsetAuthUserActionCreator = () => ({
-  type: ActionType.UNSET_AUTH_USER,
+  type: ActionType.SET_UNSET_AUTH_USER,
 });
 
 const asyncSetAuthUser =

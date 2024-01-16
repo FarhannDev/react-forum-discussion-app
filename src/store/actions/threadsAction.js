@@ -3,26 +3,26 @@
 /* eslint-disable indent */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 
 const threadsReceiveActionCreator = (threads) => ({
-  type: ActionType.THREADS_RECEIVE,
+  type: ActionType.RECEIVE_THREADS,
   payload: { threads },
 });
 
 const addThreadActionCreator = (thread) => ({
-  type: ActionType.THREADS_ADD,
+  type: ActionType.ADD_THREADS,
   payload: { thread },
 });
 
 const addThreadsUpVoteActionCreator = ({ threadId, userId }) => ({
-  type: ActionType.THREADS_UP_VOTE,
+  type: ActionType.UP_VOTE_THREADS,
   payload: { threadId, userId },
 });
 
 const addThreadsDownVoteActionCreator = ({ threadId, userId }) => ({
-  type: ActionType.THREAD_DOWN_VOTE,
+  type: ActionType.DOWN_VOTE_THREADS,
   payload: { threadId, userId },
 });
 

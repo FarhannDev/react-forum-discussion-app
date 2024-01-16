@@ -1,4 +1,4 @@
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 
 const isPreloadReducer = (isPreload = true, action = {}) => {
   switch (action.type) {

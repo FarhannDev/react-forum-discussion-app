@@ -3,10 +3,10 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
-import ActionType from '../../constants/ActionTypes';
+import ActionType from '../../constants/ActionType';
 
 const receiveLeaderBoardsActionCreator = (leaderboards) => ({
-  type: ActionType.LEADERBOARDS_RECEIVE,
+  type: ActionType.RECEIVE_LEADERBOARDS,
   payload: { leaderboards },
 });
 

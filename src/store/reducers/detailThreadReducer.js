@@ -5,7 +5,7 @@
 /* eslint-disable consistent-return */
 // import ActionType from '../../constants/ActionTypes';
 
-import { ActionType } from '../actions/detailThreadAction';
+import ActionType from '../../constants/ActionType';
 
 const detailThreadReducer = (detailThread = null, action = {}) => {
   switch (action.type) {
@@ -13,7 +13,7 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
       return action.payload.detailThread;
     case ActionType.CLEAR_THREAD_DETAIL:
       return null;
-    case ActionType.ADD_COMMENT:
+    case ActionType.ADD_THREAD_COMMENT:
       return {
         ...detailThread,
         comments: [action.payload.comment, ...detailThread.comments],
@@ -55,7 +55,7 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
           : detailThread.upVotesBy,
       };
 
-    case ActionType.UP_VOTE_COMMENT:
+    case ActionType.UP_VOTE_COMMENT_THREAD:
       return {
         ...detailThread,
         comments: detailThread.comments.map((comment) => {
@@ -76,7 +76,7 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
         }),
       };
 
-    case ActionType.DOWN_VOTE_COMMENT:
+    case ActionType.DOWN_VOTE_COMMENT_THREAD:
       return {
         ...detailThread,
         comments: detailThread.comments.map((comment) => {
@@ -97,7 +97,7 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
         }),
       };
 
-    case ActionType.CLEAR_VOTE_COMMENT:
+    case ActionType.CLEAR_VOTE_COMMENT_THREAD:
       return {
         ...detailThread,
         comments: detailThread.comments.map((comment) => {
