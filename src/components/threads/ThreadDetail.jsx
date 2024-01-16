@@ -6,9 +6,9 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
-import React from 'react';
+import React, { useEffect } from 'react';
 import parse from 'html-react-parser';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, Stack, Row, Col } from 'react-bootstrap';
 import { postedAt } from '../../utils/showFormattedDate';
 import {
@@ -21,6 +21,12 @@ import CommentsListUser from './details/CommentsListUser';
 import ContentHeading from '../common/ContentHeading';
 import CommentsFormInput from './details/CommentsFormInput';
 import CommentsIsEmpty from './details/CommentsIsEmpty';
+import { useDispatch } from 'react-redux';
+import {
+  asyncToggleUpVoteThreadDetail,
+  asyncToggleDownVoteThreadDetail,
+  asyncAddComment,
+} from '../../store/actions/detailThreadAction';
 
 export default function ThreadDetail({
   id,
@@ -32,6 +38,20 @@ export default function ThreadDetail({
   downVotesBy,
   comments,
 }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleComment = ({ content }) => {
+    dispatch(asyncAddComment({ threadId: id, content }));
+  };
+
+  const handleUpVote = () => {
+    dispatch(asyncToggleUpVoteThreadDetail());
+  };
+
+  const handleDownVote = () => dispatch(asyncToggleDownVoteThreadDetail());
+  // const handleDownVote = () => dispatch(asyncAddThreadsDownVote(id));
+
   function ThreadUserInfo() {
     return (
       <Stack direction="horizontal" gap={3}>
@@ -70,6 +90,7 @@ export default function ThreadDetail({
                   type="button"
                   className="btn btn-vote"
                   title="Dukung Naik"
+                  onClick={handleUpVote}
                 >
                   <div className="d-flex flex-row">
                     <IoThumbsUpOutline fontSize={24} />
@@ -81,6 +102,7 @@ export default function ThreadDetail({
                   type="button"
                   className="btn btn-vote"
                   title="Dukung Turun"
+                  onClick={handleDownVote}
                 >
                   <div className="d-flex flex-row">
                     <IoThumbsDownOutline fontSize={24} />
@@ -108,7 +130,7 @@ export default function ThreadDetail({
             <Card.Body>
               <ThreadUserInfo />
               <ThreadContentBody />
-              <CommentsFormInput />
+              <CommentsFormInput comment={handleComment} />
             </Card.Body>
           </Card>
         </Col>

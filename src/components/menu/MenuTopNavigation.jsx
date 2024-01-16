@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-shadow */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable implicit-arrow-linebreak */
@@ -6,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar, Stack } from 'react-bootstrap';
 import { FiHome, FiBell } from 'react-icons/fi';
 import { FaThreads, FaUsers, FaUser } from 'react-icons/fa6';
-import { MdGTranslate } from 'react-icons/md';
 
 import '../../assets/styles/menu-top-navigation.css';
 import SearchBar from '../common/SearchBar';

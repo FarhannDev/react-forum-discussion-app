@@ -1,17 +1,12 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-unused-vars */
-/* eslint-disable import/order */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-absolute-path */
-/* eslint-disable react/button-has-type */
-/* eslint-disable import/no-unresolved */
 /* eslint-disable react/react-in-jsx-scope */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import asyncPopulateThunkMiddleware from './store/shared/asyncPopulateThunkMiddleware';
+import { asyncPreloadProcess } from './store/actions/isPreloadAction';
+
 import AuthLayout from './layouts/AuthLayout';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
@@ -25,16 +20,17 @@ import ThreadDetailPage from './pages/threads/ThreadDetailPage';
 import LeaderBoardIndexPage from './pages/leaderboards/LeaderBoardIndexPage';
 
 export default function App() {
-  const { users, threads, leaderBoards, authUser } = useSelector(
-    (states) => states
-  );
+  const { authUser, isPreload = false } = useSelector((states) => states);
   const dispatch = useDispatch();
 
-  const [isAuth, setIsAuth] = useState(true);
-
   useEffect(() => {
-    dispatch(asyncPopulateThunkMiddleware());
+    // dispatch async action to preload app
+    dispatch(asyncPreloadProcess());
   }, [dispatch]);
+
+  if (isPreload) {
+    return null;
+  }
 
   const publicRoute = (
     <AuthLayout>
@@ -43,6 +39,8 @@ export default function App() {
           <Route index element={<LoginPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </AuthLayout>
@@ -51,10 +49,7 @@ export default function App() {
   const privateRoute = (
     <AppLayout>
       <Routes>
-        <Route
-          path="/"
-          element={<HomePage threads={threads} users={users} />}
-        />
+        <Route path="/" element={<HomePage />} />
 
         <Route path="/threads" element={<ThreadIndexPage />} />
         <Route path="/threads/:id" element={<ThreadDetailPage />} />
@@ -67,5 +62,5 @@ export default function App() {
     </AppLayout>
   );
 
-  return !isAuth ? publicRoute : privateRoute;
+  return !authUser ? publicRoute : privateRoute;
 }

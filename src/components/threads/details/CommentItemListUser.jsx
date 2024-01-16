@@ -14,6 +14,7 @@ import ButtonVoteComment from './ButtonVoteComment';
 import '../../../assets/styles/comment-user.css';
 
 export default function CommentsItemListUser({
+  id,
   content,
   createdAt,
   owner,
@@ -40,7 +41,7 @@ export default function CommentsItemListUser({
           </div>
         </div>
         <div className="comments-card-item__user__body">{parse(content)}</div>
-        <ButtonVoteComment />
+        <ButtonVoteComment id={id} upVote={upVotesBy} downVote={downVotesBy} />
       </Stack>
     </Card>
   );

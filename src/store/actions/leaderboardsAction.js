@@ -6,7 +6,7 @@
 import ActionType from '../../constants/ActionTypes';
 
 const receiveLeaderBoardsActionCreator = (leaderboards) => ({
-  type: ActionType.RECEIVE_LEADERBOARDS,
+  type: ActionType.LEADERBOARDS_RECEIVE,
   payload: { leaderboards },
 });
 

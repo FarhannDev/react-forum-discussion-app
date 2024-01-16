@@ -1,5 +1,5 @@
 .main-content-auth {
-  background-image: url('../images/background/free_epik_auth_background.jpg');
+  /* background-image: url('../images/background/free_epik_auth_background.jpg'); */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -7,6 +7,13 @@
   min-height: 100vh;
   padding-top: 5em;
   padding-bottom: 5em;
+}
+
+.auth-card-container {
+  width: 100%;
+  height: auto;
+  background: var(--Background, #fff);
+  border-radius: 12px;
 }
 
 .auth-form-input {
@@ -27,11 +34,11 @@
   line-height: 120%; /* 19.2px */
 }
 
-.auth-form-input::placeholder {
+/* .auth-form-input::placeholder {
   font-family: Poppins;
   font-size: 18px;
   color: var(--Font-800, #454545);
-}
+} */
 
 .auth-form-label {
   color: var(--Font-800, #454545);

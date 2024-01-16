@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import api from '../../services/api';
 import { receiveUsersActionCreator } from '../actions/usersAction';
-import { receiveThreadsActionCreator } from '../actions/threadsAction';
+import { threadsReceiveActionCreator } from '../actions/threadsAction';
 import { receiveLeaderBoardsActionCreator } from '../actions/leaderboardsAction';
 
 const asyncPopulateThunkMiddleware = () => async (dispatch) => {
@@ -12,7 +12,7 @@ const asyncPopulateThunkMiddleware = () => async (dispatch) => {
     const leaderBoards = await api.getLeaderboards();
 
     dispatch(receiveUsersActionCreator(users));
-    dispatch(receiveThreadsActionCreator(threads));
+    dispatch(threadsReceiveActionCreator(threads));
     dispatch(receiveLeaderBoardsActionCreator(leaderBoards));
   } catch (error) {
     console.log(error.message);

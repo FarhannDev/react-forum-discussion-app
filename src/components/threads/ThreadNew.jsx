@@ -6,7 +6,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Form } from 'react-bootstrap';
 
-export default function ThreadNew() {
+export default function ThreadNew({ user }) {
   const navigate = useNavigate();
 
   const handleClick = () => navigate('/threads/new');
@@ -16,8 +16,8 @@ export default function ThreadNew() {
       <div className="d-flex align-items-center">
         <div>
           <img
-            src="https://ui-avatars.com/api/?name=Thread Starter&background=random"
-            alt="user"
+            src={user?.avatar}
+            alt={user?.name}
             className="thread-card-new__avatar"
           />
         </div>

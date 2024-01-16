@@ -11,7 +11,7 @@ import ThreadsList from '../components/threads/ThreadsList';
 import ThreadNew from '../components/threads/ThreadNew';
 
 export default function HomePage() {
-  const { threads, users } = useSelector((state) => state);
+  const { threads, users, authUser } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function HomePage() {
   return (
     <>
       <Container>
-        <ThreadNew />
+        <ThreadNew user={authUser} />
         <ThreadsList threads={threadsList} />
       </Container>
     </>

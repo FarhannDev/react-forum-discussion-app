@@ -16,7 +16,7 @@ export default function LeaderBoardIndexPage() {
 
   return (
     <Container>
-      <ContentHeading title="Selamat Datang Di Leader Boards" />
+      {/* <ContentHeading title="Selamat Datang Di Leader Boards" /> */}
 
       <Card body className="leaderboards-card-item">
         <ContentHeading title="Klasemen Pengguna Aktif" />

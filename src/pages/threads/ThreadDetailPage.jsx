@@ -4,9 +4,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { asyncReceiveDetailThread } from '../../store/actions/detailThreadAction';
+import { asyncReceiveThreadsDetail } from '../../store/actions/detailThreadAction';
 import ThreadDetail from '../../components/threads/ThreadDetail';
 
 export default function ThreadDetailPage() {
@@ -15,7 +15,7 @@ export default function ThreadDetailPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(asyncReceiveDetailThread(id));
+    dispatch(asyncReceiveThreadsDetail(id));
   }, [dispatch, id]);
 
   if (detailThread === null) return null;

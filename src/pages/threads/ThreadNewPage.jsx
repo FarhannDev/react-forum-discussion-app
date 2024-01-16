@@ -1,13 +1,23 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { asyncAddThread } from '../../store/actions/threadsAction';
 import ThreadFormInput from '../../components/threads/ThreadFormInput';
 
 export default function ThredNewPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleThread = ({ title, body, category }) => {
+    dispatch(asyncAddThread({ title, body, category }));
+    navigate('/');
+  };
+
   return (
     <Container>
       <Row className="justify-content-start g-3">
         <Col>
-          <ThreadFormInput />
+          <ThreadFormInput thread={handleThread} />
         </Col>
       </Row>
     </Container>

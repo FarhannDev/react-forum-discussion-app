@@ -7,7 +7,7 @@ import ActionType from '../../constants/ActionTypes';
 import api from '../../services/api';
 
 const receiveUsersActionCreator = (users) => ({
-  type: ActionType.RECEIVE_USERS,
+  type: ActionType.USERS_RECEIVE,
   payload: { users },
 });
 

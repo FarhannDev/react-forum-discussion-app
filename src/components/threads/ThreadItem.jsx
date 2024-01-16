@@ -6,18 +6,25 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes, { string } from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Card, Stack } from 'react-bootstrap';
 import {
   IoThumbsUpOutline,
   IoThumbsDownOutline,
   IoChatbubbleOutline,
   IoShareSocialOutline,
+  IoThumbsDown,
+  IoThumbsUp,
 } from 'react-icons/io5';
 import '../../assets/styles/thread-card-item.css';
 import { postedAt } from '../../utils/showFormattedDate';
 import parse from 'html-react-parser';
+import {
+  asyncAddThreadsUpVote,
+  asyncAddThreadsDownVote,
+} from '../../store/actions/threadsAction';
 
 function ThreadCardItem({
   id,
@@ -30,6 +37,13 @@ function ThreadCardItem({
   totalComments,
   user,
 }) {
+  const dispatch = useDispatch();
+
+  const handleUpVote = () => {
+    dispatch(asyncAddThreadsUpVote(id));
+  };
+  const handleDownVote = () => dispatch(asyncAddThreadsDownVote(id));
+
   function ThreadUserInfo() {
     return (
       <Stack direction="horizontal" gap={3}>
@@ -72,9 +86,15 @@ function ThreadCardItem({
                   type="button"
                   className="btn btn-vote"
                   title="Dukung Naik"
+                  onClick={handleUpVote}
                 >
                   <div className="d-flex flex-row">
-                    <IoThumbsUpOutline fontSize={24} />
+                    {upVotesBy.length ? (
+                      <IoThumbsUp fontSize={24} />
+                    ) : (
+                      <IoThumbsUpOutline fontSize={24} />
+                    )}
+
                     <div className="btn-vote__count">{upVotesBy.length}</div>
                   </div>
                 </button>
@@ -83,8 +103,17 @@ function ThreadCardItem({
                   type="button"
                   className="btn btn-vote"
                   title="Dukung Turun"
+                  onClick={handleDownVote}
                 >
-                  <IoThumbsDownOutline fontSize={24} />
+                  <div className="d-flex flex-row">
+                    {downVotesBy.length ? (
+                      <IoThumbsDown fontSize={24} />
+                    ) : (
+                      <IoThumbsDownOutline fontSize={24} />
+                    )}
+
+                    <div className="btn-vote__count">{downVotesBy.length}</div>
+                  </div>
                 </button>
               </div>
             </div>
