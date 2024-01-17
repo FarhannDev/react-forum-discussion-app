@@ -6,27 +6,22 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
-import React, { useEffect } from 'react';
+import React from 'react';
 import parse from 'html-react-parser';
-import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Card, Stack, Row, Col } from 'react-bootstrap';
+import { IoShareSocialOutline } from 'react-icons/io5';
 import { postedAt } from '../../utils/showFormattedDate';
-import {
-  IoThumbsUpOutline,
-  IoThumbsDownOutline,
-  IoShareSocialOutline,
-} from 'react-icons/io5';
-import '../../assets/styles/thread-card-item.css';
+import { asyncAddComment } from '../../store/actions/detailThreadAction';
+
 import CommentsListUser from './details/CommentsListUser';
 import ContentHeading from '../common/ContentHeading';
 import CommentsFormInput from './details/CommentsFormInput';
 import CommentsIsEmpty from './details/CommentsIsEmpty';
-import { useDispatch } from 'react-redux';
-import {
-  asyncToggleUpVoteThreadDetail,
-  asyncToggleDownVoteThreadDetail,
-  asyncAddComment,
-} from '../../store/actions/detailThreadAction';
+import ThreadButtonVoteDetail from './button/ThreadButtonVoteDetail';
+
+import '../../assets/styles/thread-card-item.css';
 
 export default function ThreadDetail({
   id,
@@ -38,19 +33,10 @@ export default function ThreadDetail({
   downVotesBy,
   comments,
 }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const handleComment = ({ content }) => {
     dispatch(asyncAddComment({ threadId: id, content }));
   };
-
-  const handleUpVote = () => {
-    dispatch(asyncToggleUpVoteThreadDetail());
-  };
-
-  const handleDownVote = () => dispatch(asyncToggleDownVoteThreadDetail());
-  // const handleDownVote = () => dispatch(asyncAddThreadsDownVote(id));
 
   function ThreadUserInfo() {
     return (
@@ -84,33 +70,11 @@ export default function ThreadDetail({
           </Link>
           <div className="thread-card-item__body">{parse(body)}</div>
           <div className="d-flex flex-wrap">
-            <div className="thread-card-item__action me-2">
-              <div className="thread-card-item__action-vote">
-                <button
-                  type="button"
-                  className="btn btn-vote"
-                  title="Dukung Naik"
-                  onClick={handleUpVote}
-                >
-                  <div className="d-flex flex-row">
-                    <IoThumbsUpOutline fontSize={24} />
-                    <div className="btn-vote__count">{upVotesBy.length}</div>
-                  </div>
-                </button>
-                |
-                <button
-                  type="button"
-                  className="btn btn-vote"
-                  title="Dukung Turun"
-                  onClick={handleDownVote}
-                >
-                  <div className="d-flex flex-row">
-                    <IoThumbsDownOutline fontSize={24} />
-                    <div className="btn-vote__count">{downVotesBy.length}</div>
-                  </div>
-                </button>
-              </div>
-            </div>
+            <ThreadButtonVoteDetail
+              upVotes={upVotesBy}
+              downVotes={downVotesBy}
+            />
+
             <div className="thread-card-item__action-vote-comment">
               <button type="button" className="btn btn-vote" title="Bagikan">
                 <IoShareSocialOutline fontSize={24} />

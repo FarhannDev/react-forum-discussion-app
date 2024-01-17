@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './store/configureStore';
 import App from './App';
 // import assets
+import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/auth.css';
 import './assets/styles/index.css';

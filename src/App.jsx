@@ -4,7 +4,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { asyncPreloadProcess } from './store/actions/isPreloadAction';
 
 import AuthLayout from './layouts/AuthLayout';
@@ -18,6 +18,9 @@ import ThredNewPage from './pages/threads/ThreadNewPage';
 import ThreadIndexPage from './pages/threads/ThreadIndexPage';
 import ThreadDetailPage from './pages/threads/ThreadDetailPage';
 import LeaderBoardIndexPage from './pages/leaderboards/LeaderBoardIndexPage';
+import UsersProfileMe from './pages/profile/UsersProfileMe';
+import UsersProfile from './pages/profile/UsersProfile';
+import NotificationIndexPage from './pages/notifications/NotificationIndexPage';
 
 export default function App() {
   const { authUser, isPreload = false } = useSelector((states) => states);
@@ -40,6 +43,7 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
 
+          {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
@@ -56,6 +60,12 @@ export default function App() {
         <Route path="/threads/new" element={<ThredNewPage />} />
 
         <Route path="/leaderboards" element={<LeaderBoardIndexPage />} />
+
+        <Route path="/notifications" element={<NotificationIndexPage />} />
+        <Route path="/users">
+          <Route path=":id" element={<UsersProfile />} />
+          <Route path="me" element={<UsersProfileMe />} />
+        </Route>
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

@@ -10,8 +10,10 @@ import Heading from '../../components/auth/Heading';
 import SubHeading from '../../components/auth/SubHeading';
 
 export default function LoginPage() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogin = ({ email, password }) => {
+    navigate('/notifications');
     dispatch(asyncSetAuthUser({ email, password }));
   };
   return (

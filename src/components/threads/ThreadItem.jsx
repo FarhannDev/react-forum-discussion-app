@@ -6,32 +6,25 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
+import parse from 'html-react-parser';
 import PropTypes, { string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Card, Stack } from 'react-bootstrap';
-import {
-  IoThumbsUpOutline,
-  IoThumbsDownOutline,
-  IoChatbubbleOutline,
-  IoShareSocialOutline,
-  IoThumbsDown,
-  IoThumbsUp,
-} from 'react-icons/io5';
-import '../../assets/styles/thread-card-item.css';
+import { IoChatbubbleOutline, IoShareSocialOutline } from 'react-icons/io5';
 import { postedAt } from '../../utils/showFormattedDate';
-import parse from 'html-react-parser';
 import {
   asyncAddThreadsUpVote,
   asyncAddThreadsDownVote,
 } from '../../store/actions/threadsAction';
+import '../../assets/styles/thread-card-item.css';
+import ThreadButtonVote from './button/ThreadButtonVote';
 
 function ThreadCardItem({
   id,
   title,
   body,
   createdAt,
-  ownerId,
   upVotesBy,
   downVotesBy,
   totalComments,
@@ -49,14 +42,27 @@ function ThreadCardItem({
       <Stack direction="horizontal" gap={3}>
         <div className="thread-card-item__user">
           <div className="d-flex  justify-content-start align-content-start">
-            <img
-              src={user?.avatar}
-              alt="user"
-              className="thread-card-item__user-avatar"
-            />
+            <Link
+              to={`/users/${user?.id}`}
+              aria-label={`Profile ${user?.name}`}
+              title={`Profile ${user?.name}`}
+            >
+              <img
+                src={user?.avatar}
+                alt="user"
+                className="thread-card-item__user-avatar"
+              />
+            </Link>
 
             <div className="d-flex flex-column">
-              <div className="thread-card-item__user-name">{user?.name}</div>
+              <Link
+                to={`/users/${user?.id}`}
+                className="link-offset-2 link-underline link-underline-opacity-0 thread-card-item__user-name"
+                aria-label={`Profile ${user?.name}`}
+                title={`Profile ${user?.name}`}
+              >
+                {user?.name}
+              </Link>
               <div className="thread-card-item__user-date">
                 {postedAt(createdAt)}
               </div>
@@ -80,44 +86,11 @@ function ThreadCardItem({
               : parse(body)}
           </div>
           <div className="d-flex flex-wrap">
-            <div className="thread-card-item__action me-2">
-              <div className="thread-card-item__action-vote">
-                <button
-                  type="button"
-                  className="btn btn-vote"
-                  title="Dukung Naik"
-                  onClick={handleUpVote}
-                >
-                  <div className="d-flex flex-row">
-                    {upVotesBy.length ? (
-                      <IoThumbsUp fontSize={24} />
-                    ) : (
-                      <IoThumbsUpOutline fontSize={24} />
-                    )}
-
-                    <div className="btn-vote__count">{upVotesBy.length}</div>
-                  </div>
-                </button>
-                |
-                <button
-                  type="button"
-                  className="btn btn-vote"
-                  title="Dukung Turun"
-                  onClick={handleDownVote}
-                >
-                  <div className="d-flex flex-row">
-                    {downVotesBy.length ? (
-                      <IoThumbsDown fontSize={24} />
-                    ) : (
-                      <IoThumbsDownOutline fontSize={24} />
-                    )}
-
-                    <div className="btn-vote__count">{downVotesBy.length}</div>
-                  </div>
-                </button>
-              </div>
-            </div>
-
+            <ThreadButtonVote
+              threadId={id}
+              upVotes={upVotesBy}
+              downVotes={downVotesBy}
+            />
             <div className="thread-card-item__action-vote-comment">
               <button type="button" className="btn btn-vote" title="Komentar">
                 <div className="d-flex flex-row px-2">

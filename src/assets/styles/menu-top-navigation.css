@@ -8,18 +8,18 @@
 }
 
 .navbar .container {
-  width: 1000px;
+  width: 100%;
 }
 
 .navbar .navbar-brand {
   color: var(--Danger-600, #ce2f2f) !important;
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
   text-transform: uppercase;
-  user-select: none;
+  /* user-select: none; */
 }
 
 /* Responsive */
@@ -28,5 +28,8 @@
   .navbar .navbar-brand {
     margin: 0 auto;
     margin-right: 13px !important;
+  }
+  .navbar .container {
+    width: 1000px;
   }
 }

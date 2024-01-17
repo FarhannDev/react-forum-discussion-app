@@ -107,3 +107,26 @@
   margin-bottom: 20px;
   text-transform: uppercase;
 }
+
+.leaderboard-list-item__user-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+  /* overflow: hidden; */
+  color: var(--Font-600, #5d5d5d);
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.016px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.leaderboard-list-item__user-name:hover {
+  text-decoration: underline;
+}

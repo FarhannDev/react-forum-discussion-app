@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
+import React from 'react';
+import ContentEditable from 'react-contenteditable';
 import { Card, Form, Button } from 'react-bootstrap';
-import { useState } from 'react';
-import ContentHeading from '../common/ContentHeading';
 import useInput from '../../hooks/useInput';
+import ContentHeading from '../common/ContentHeading';
 
 export default function ThreadFormInput({ thread }) {
   const [title, onTitleChange] = useInput('');
   const [category, onCategoryChange] = useInput('');
-  const [body, setBody] = useState('');
-
-  const onBodyChangeEventHandler = (event) => setBody(event.target.innerHTML);
+  const [body, onBodyChange] = useInput('');
 
   const disabledButton = Boolean(title && category && body);
 
@@ -48,11 +47,12 @@ export default function ThreadFormInput({ thread }) {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Isi Pertanyaan</Form.Label>
-          <div
-            contentEditable
+          <ContentEditable
+            html={body}
+            onChange={onBodyChange}
             className="thread-form-input__textarea"
-            data-placeholder="Tuliskan semua yang ada di pikiran kamu..."
-            onInput={onBodyChangeEventHandler}
+            title="Buat Pertanyaan Baru "
+            tagName="article"
           />
         </Form.Group>
 

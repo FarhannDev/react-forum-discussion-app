@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { ListGroup, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function LeaderBoardList({ leaderboards }) {
   function LeaderboardHeading() {
@@ -24,14 +25,19 @@ export default function LeaderBoardList({ leaderboards }) {
         <ListGroup.Item className="leaderboard-list-item">
           <div className="d-flex justify-content-between align-content-start g-3">
             <div className="leaderboard-list-item__user">
-              <div className="d-flex flex-row align-items-center">
+              <div className="d-flex flex-row align-items-center justify-content-start">
                 <img
                   className="leaderboard-list-item__user-avatar"
                   src={user?.avatar}
                 />
-                <div className="leaderboard-list-item__user-name">
+
+                <Link
+                  to={`/users/${user.id}`}
+                  aria-label=""
+                  className="leaderboard-list-item__user-name px-3 pt-2"
+                >
                   {user?.name}
-                </div>
+                </Link>
               </div>
             </div>
             <div className="leaderboard-list-item__user-score">{score}</div>

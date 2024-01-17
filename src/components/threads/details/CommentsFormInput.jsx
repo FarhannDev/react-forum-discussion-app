@@ -2,12 +2,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import ContentEditable from 'react-contenteditable';
 import { Form, Row, Col } from 'react-bootstrap';
 import { IoSend } from 'react-icons/io5';
 
 export default function CommentsFormInput({ comment }) {
   const [content, setContent] = useState('');
-  const onContentHandleChange = ({ target }) => setContent(target.innerHTML);
+  const onContentHandleChange = ({ target }) => setContent(target.value);
   const disabledButton = Boolean(content);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,14 +21,14 @@ export default function CommentsFormInput({ comment }) {
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <div className="d-flex justify-content-between g-3">
-              <div
-                contentEditable
+              <ContentEditable
+                html={content}
+                onChange={onContentHandleChange}
                 className="comments-form-input__textarea me-auto"
-                data-placeholder="Tuliskan semua yang ada di pikiran kamu..."
-                onInput={onContentHandleChange}
-              >
-                {/* {content === '' ? 'Tuliskan komentar....' : ''} */}
-              </div>
+                title="Tuliskan semua yang ada di pikiran kamu..."
+                tagName="article"
+              />
+
               <button
                 disabled={!disabledButton}
                 className="btn border-0"

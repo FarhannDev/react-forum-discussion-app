@@ -1,0 +1,42 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable operator-linebreak */
+/* eslint-disable react/prop-types */
+/* eslint-disable object-curly-newline */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-no-useless-fragment */
+import React from 'react';
+import { Form, Row, Col } from 'react-bootstrap';
+
+export default function SelectedThreads({
+  threads,
+  selectedCategory,
+  setSelectedCategory,
+}) {
+  return (
+    <Row className="justify-content-end g-3 py-3">
+      <Col lg={4}>
+        <Form.Label>Urutkan Berdasarkan Kategori Terpopuler</Form.Label>
+        <Form.Select
+          aria-label="Default select example"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="all">Pilih Semua Kategori</option>
+
+          {threads
+            .filter(
+              (value, index, self) =>
+                index ===
+                self.findIndex((obj) => obj.category === value.category)
+            )
+            .map((thread) => (
+              <option key={thread.id} value={thread.category}>
+                {thread.category}
+              </option>
+            ))}
+        </Form.Select>
+      </Col>
+    </Row>
+  );
+}

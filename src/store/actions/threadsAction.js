@@ -27,7 +27,7 @@ const addThreadsDownVoteActionCreator = ({ threadId, userId }) => ({
 });
 
 const addThreadsNeutralVoteActionCreator = ({ threadId, userId }) => ({
-  type: ActionType.THREAD_NEUTRAL_VOTE,
+  type: ActionType.CLEAR_VOTE_THREADS,
   payload: { threadId, userId },
 });
 
