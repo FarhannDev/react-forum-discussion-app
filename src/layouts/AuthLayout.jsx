@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
-import { LoadingBar } from 'react-redux-loading-bar';
 import { ToastContainer } from 'react-toastify';
 import PropTypes from 'prop-types';
+import loadable from '@loadable/component';
 
+const Loading = loadable(() => import('../components/common/Loading'));
 /* eslint-disable react/prop-types */
 export default function AuthLayout({ children }) {
   return (
     <>
-      <LoadingBar className="loading" />
+      <Loading />
       <main className="main-content-auth">{children}</main>
       <ToastContainer
         position="top-right"
