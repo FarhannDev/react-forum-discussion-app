@@ -1,13 +1,20 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable import/order */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
+import loadable from '@loadable/component';
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import NotificationWelcome from '../../components/notifications/NotificationWelcome';
-import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
+import ReactSEOMetaTags from 'react-seo-meta-tags';
+
+const NotificationWelcome = loadable(() =>
+  import('../../components/notifications/NotificationWelcome')
+);
 
 export default function NotificationIndexPage() {
   return (

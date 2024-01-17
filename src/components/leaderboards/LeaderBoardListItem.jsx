@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unstable-nested-components */
@@ -6,8 +7,10 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 export default function LeaderBoardListItem({ user, score }) {
+  const { authUser } = useSelector((state) => state);
   return (
     <ListGroup variant="flush " className="leaderboard-list">
       <ListGroup.Item className="leaderboard-list-item">
@@ -24,7 +27,10 @@ export default function LeaderBoardListItem({ user, score }) {
                 aria-label=""
                 className="leaderboard-list-item__user-name px-3 pt-2"
               >
-                {user?.name}
+                {user?.name}{' '}
+                <i className="fst-italic fw-bold">
+                  {user.id === authUser.id ? '(Anda)' : ''}
+                </i>
               </Link>
             </div>
           </div>

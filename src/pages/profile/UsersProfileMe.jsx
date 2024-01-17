@@ -1,4 +1,7 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/react-in-jsx-scope */
 import { useEffect } from 'react';
@@ -12,12 +15,20 @@ import {
 } from 'react-icons/io5';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
+import loadable from '@loadable/component';
 import { asyncUnsetAuthUser } from '../../store/actions/authUserAction';
 import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
-import ContentHeading from '../../components/common/ContentHeading';
-import ThreadsList from '../../components/threads/ThreadsList';
-import CommentsIsEmpty from '../../components/threads/details/CommentsIsEmpty';
 import '../../assets/styles/user-profile.css';
+// Code Splitting
+const ContentHeading = loadable(() =>
+  import('../../components/common/ContentHeading')
+);
+const ThreadsList = loadable(() =>
+  import('../../components/threads/ThreadsList')
+);
+const CommentsIsEmpty = loadable(() =>
+  import('../../components/threads/details/CommentsIsEmpty')
+);
 
 export default function UsersProfileMe() {
   const { id } = useParams();

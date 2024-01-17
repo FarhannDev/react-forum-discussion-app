@@ -10,8 +10,10 @@ import React, { useEffect, useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
+import loadable from '@loadable/component';
 import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMiddleware';
-import ThreadsList from '../components/threads/ThreadsList';
+// Code Splitting
+const ThreadsList = loadable(() => import('../components/threads/ThreadsList'));
 
 export default function HomePage() {
   const { threads, users, authUser } = useSelector((state) => state);

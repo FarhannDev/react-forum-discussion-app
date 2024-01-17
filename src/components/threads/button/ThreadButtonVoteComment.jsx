@@ -60,7 +60,7 @@ export default function ThreadButtonVoteComment({
           >
             <div className="d-flex flex-row">
               {isVotes ? (
-                <IoThumbsUp fontSize={24} />
+                <IoThumbsUp fontSize={24} color="#ff0000" />
               ) : (
                 <IoThumbsUpOutline fontSize={24} />
               )}
@@ -76,7 +76,7 @@ export default function ThreadButtonVoteComment({
           >
             <div className="d-flex flex-row">
               {isUnvotes ? (
-                <IoThumbsDown fontSize={24} />
+                <IoThumbsDown fontSize={24} color="#ff0000" />
               ) : (
                 <IoThumbsDownOutline fontSize={24} />
               )}

@@ -1,24 +1,34 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable import/order */
 /* eslint-disable radix */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
+import loadable from '@loadable/component';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, Card } from 'react-bootstrap';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
 import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
-import ContentHeading from '../../components/common/ContentHeading';
-import LeaderBoardList from '../../components/leaderboards/LeaderBoardList';
-import LeaderBoardSelected from '../../components/leaderboards/LeaderBoardSelected';
 import '../../assets/styles/leaderboards.css';
+
+// Code Splitting
+const ContentHeading = loadable(() =>
+  import('../../components/common/ContentHeading')
+);
+const LeaderBoardList = loadable(() =>
+  import('../../components/leaderboards/LeaderBoardList')
+);
+const LeaderBoardSelected = loadable(() =>
+  import('../../components/leaderboards/LeaderBoardSelected')
+);
 
 export default function LeaderBoardIndexPage() {
   const { leaderBoards } = useSelector((state) => state);
-
   const dispatch = useDispatch();
-
   const [selectedFilter, setSelectedFilter] = useState('');
 
   useEffect(() => {

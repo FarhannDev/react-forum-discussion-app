@@ -13,12 +13,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
+import loadable from '@loadable/component';
 import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
 
-import ThreadsList from '../../components/threads/ThreadsList';
-import ContentHeading from '../../components/common/ContentHeading';
-import SearchBar from '../../components/common/SearchBar';
-import SearchBarEmpty from '../../components/common/SearchBarEmpty';
+// Code Splitting
+
+const ThreadsList = loadable(() =>
+  import('../../components/threads/ThreadsList')
+);
+const ContentHeading = loadable(() =>
+  import('../../components/common/ContentHeading')
+);
+const SearchBar = loadable(() => import('../../components/common/SearchBar'));
+const SearchBarEmpty = loadable(() =>
+  import('../../components/common/SearchBarEmpty')
+);
 
 export default function ThreadIndexPage() {
   const [searchParams, setSearchParams] = useSearchParams();

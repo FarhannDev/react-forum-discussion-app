@@ -1,26 +1,33 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable function-paren-newline */
 /* eslint-disable comma-dangle */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
+import loadable from '@loadable/component';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { asyncPreloadProcess } from './store/actions/isPreloadAction';
 
-import AuthLayout from './layouts/AuthLayout';
-import LoginPage from './pages/auth/LoginPage';
-import RegisterPage from './pages/auth/RegisterPage';
-import ErrorPage from './pages/ErrorPage';
-import AppLayout from './layouts/AppLayout';
-
-import HomePage from './pages/HomePage';
-import ThredNewPage from './pages/threads/ThreadNewPage';
-import ThreadIndexPage from './pages/threads/ThreadIndexPage';
-import ThreadDetailPage from './pages/threads/ThreadDetailPage';
-import LeaderBoardIndexPage from './pages/leaderboards/LeaderBoardIndexPage';
-import UsersProfileMe from './pages/profile/UsersProfileMe';
-import UsersProfile from './pages/profile/UsersProfile';
-import NotificationIndexPage from './pages/notifications/NotificationIndexPage';
+// Code Splitting
+const AppLayout = loadable(() => import('./layouts/AppLayout'));
+const AuthLayout = loadable(() => import('./layouts/AuthLayout'));
+const Login = loadable(() => import('./pages/auth/LoginPage'));
+const Register = loadable(() => import('./pages/auth/RegisterPage'));
+const ErrorPage = loadable(() => import('./pages/ErrorPage'));
+const Home = loadable(() => import('./pages/HomePage'));
+const ThreadIndex = loadable(() => import('./pages/threads/ThreadIndexPage'));
+const ThreadAdd = loadable(() => import('./pages/threads/ThreadNewPage'));
+const ThreadDetail = loadable(() => import('./pages/threads/ThreadDetailPage'));
+const LeaderboardIndex = loadable(() =>
+  import('./pages/leaderboards/LeaderBoardIndexPage')
+);
+const NotificationIndex = loadable(() =>
+  import('./pages/notifications/NotificationIndexPage')
+);
+const UserProfileMe = loadable(() => import('./pages/profile/UsersProfileMe'));
+const UserProfileUser = loadable(() => import('./pages/profile/UsersProfile'));
 
 export default function App() {
   const { authUser, isPreload = false } = useSelector((states) => states);
@@ -39,9 +46,8 @@ export default function App() {
     <AuthLayout>
       <Routes>
         <Route path="/">
-          <Route index element={<LoginPage />} />
-          {/* <Route path="/login" element={<LoginPage />} /> */}
-          <Route path="/register" element={<RegisterPage />} />
+          <Route index element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Route>
@@ -52,18 +58,18 @@ export default function App() {
   const privateRoute = (
     <AppLayout>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Home />} />
 
-        <Route path="/threads" element={<ThreadIndexPage />} />
-        <Route path="/threads/:id" element={<ThreadDetailPage />} />
-        <Route path="/threads/new" element={<ThredNewPage />} />
+        <Route path="/threads" element={<ThreadIndex />} />
+        <Route path="/threads/:id" element={<ThreadDetail />} />
+        <Route path="/threads/new" element={<ThreadAdd />} />
 
-        <Route path="/leaderboards" element={<LeaderBoardIndexPage />} />
+        <Route path="/leaderboards" element={<LeaderboardIndex />} />
 
-        <Route path="/notifications" element={<NotificationIndexPage />} />
+        <Route path="/notifications" element={<NotificationIndex />} />
         <Route path="/users">
-          <Route path=":id" element={<UsersProfile />} />
-          <Route path="me" element={<UsersProfileMe />} />
+          <Route path=":id" element={<UserProfileUser />} />
+          <Route path="me" element={<UserProfileMe />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

@@ -1,12 +1,20 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-unused-vars */
+import loadable from '@loadable/component';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { asyncSetAuthUser } from '../../store/actions/authUserAction';
-import LoginFormInput from '../../components/auth/LoginFormInput';
-import Heading from '../../components/auth/Heading';
-import SubHeading from '../../components/auth/SubHeading';
+
+// Code Splitting
+const LoginFormInput = loadable(() =>
+  import('../../components/auth/LoginFormInput')
+);
+const Heading = loadable(() => import('../../components/auth/Heading'));
+const SubHeading = loadable(() => import('../../components/auth/SubHeading'));
 
 export default function LoginPage() {
   const dispatch = useDispatch();

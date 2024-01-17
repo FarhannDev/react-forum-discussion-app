@@ -1,3 +1,6 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/react-in-jsx-scope */
 import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -5,8 +8,13 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { ReactSEOMetaTags } from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
+import loadable from '@loadable/component';
 import { asyncAddThread } from '../../store/actions/threadsAction';
-import ThreadFormInput from '../../components/threads/ThreadFormInput';
+
+// Code Splitting
+const ThreadFormInput = loadable(() =>
+  import('../../components/threads/ThreadFormInput')
+);
 
 export default function ThredNewPage() {
   const dispatch = useDispatch();

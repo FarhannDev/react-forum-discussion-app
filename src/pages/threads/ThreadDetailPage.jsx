@@ -1,3 +1,6 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/prop-types */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-unused-vars */
@@ -8,8 +11,14 @@ import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
+import loadable from '@loadable/component';
 import { asyncReceiveThreadsDetail } from '../../store/actions/detailThreadAction';
-import ThreadDetail from '../../components/threads/ThreadDetail';
+
+// Code Splitting
+
+const ThreadDetail = loadable(() =>
+  import('../../components/threads/ThreadDetail')
+);
 
 export default function ThreadDetailPage() {
   const { id } = useParams();
