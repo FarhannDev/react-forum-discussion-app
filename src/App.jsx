@@ -4,7 +4,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { asyncPreloadProcess } from './store/actions/isPreloadAction';
 
 import AuthLayout from './layouts/AuthLayout';

@@ -11,7 +11,6 @@ import CreatableSelect from 'react-select/creatable';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMiddleware';
-
 import ThreadsList from '../components/threads/ThreadsList';
 
 export default function HomePage() {

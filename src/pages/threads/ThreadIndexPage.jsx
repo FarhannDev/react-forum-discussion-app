@@ -11,6 +11,8 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
+import ReactSEOMetaTags from 'react-seo-meta-tags';
+import { Helmet } from 'react-helmet';
 import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
 
 import ThreadsList from '../../components/threads/ThreadsList';
@@ -51,6 +53,26 @@ export default function ThreadIndexPage() {
 
   return (
     <Container>
+      <ReactSEOMetaTags
+        render={(el) => <Helmet>{el}</Helmet>}
+        website={{
+          url: 'http://localhost:5173/',
+          title: 'Cari Semua Diskusi',
+          datePublished: new Date().toISOString(),
+          description: 'Cari semua diskusi yang sudah dibuat dan dibagikan',
+          language: 'en-US',
+          author: {
+            email: 'farhan18042002@gmail.com',
+            name: 'Farhan',
+            image: 'https://avatars.githubusercontent.com/u/101630148?s=96&v=4',
+          },
+          site: {
+            siteName: 'DICODING OPEN DISCUSSION',
+            searchUrl: 'https://www.google.com/search?q=',
+          },
+        }}
+      />
+
       <SearchBar
         placeholder="Mau Cari Apa?"
         keyword={keyword}

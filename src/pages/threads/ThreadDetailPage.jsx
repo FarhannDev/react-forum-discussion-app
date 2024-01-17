@@ -6,6 +6,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import ReactSEOMetaTags from 'react-seo-meta-tags';
+import { Helmet } from 'react-helmet';
 import { asyncReceiveThreadsDetail } from '../../store/actions/detailThreadAction';
 import ThreadDetail from '../../components/threads/ThreadDetail';
 
@@ -22,6 +24,25 @@ export default function ThreadDetailPage() {
 
   return (
     <Container>
+      <ReactSEOMetaTags
+        render={(el) => <Helmet>{el}</Helmet>}
+        website={{
+          url: `http://localhost:5173/threads/${id}`,
+          title: detailThread?.title,
+          datePublished: new Date().toISOString(),
+          description: detailThread?.body,
+          language: 'en-US',
+          author: {
+            email: 'farhan18042002@gmail.com',
+            name: 'Farhan',
+            image: 'https://avatars.githubusercontent.com/u/101630148?s=96&v=4',
+          },
+          site: {
+            siteName: 'DICODING OPEN DISCUSSION',
+            searchUrl: 'https://www.google.com/search?q=',
+          },
+        }}
+      />
       <ThreadDetail {...detailThread} />
     </Container>
   );

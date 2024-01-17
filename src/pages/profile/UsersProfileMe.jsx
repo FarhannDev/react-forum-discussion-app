@@ -10,6 +10,8 @@ import {
   IoMailOpenOutline,
   IoPersonOutline,
 } from 'react-icons/io5';
+import ReactSEOMetaTags from 'react-seo-meta-tags';
+import { Helmet } from 'react-helmet';
 import { asyncUnsetAuthUser } from '../../store/actions/authUserAction';
 import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
 import ContentHeading from '../../components/common/ContentHeading';
@@ -41,6 +43,27 @@ export default function UsersProfileMe() {
 
   return (
     <Container>
+      <ReactSEOMetaTags
+        render={(el) => <Helmet>{el}</Helmet>}
+        website={{
+          url: 'http://localhost:5173/',
+          title: 'Profil Saya',
+          datePublished: new Date().toISOString(),
+          description:
+            'Selamat Datang di Dicoding Open Discussion! Tempat diskusi seputar teknologi, dunia dan lainnya.            ',
+          language: 'en-US',
+          author: {
+            email: 'farhan18042002@gmail.com',
+            name: 'Farhan',
+            image: 'https://avatars.githubusercontent.com/u/101630148?s=96&v=4',
+          },
+          site: {
+            siteName: 'DICODING OPEN DISCUSSION',
+            searchUrl: 'https://www.google.com/search?q=',
+          },
+        }}
+      />
+
       <div className="d-flex justify-content-start align-items-center align-content-center g-3">
         <img
           src={authUser?.avatar}
