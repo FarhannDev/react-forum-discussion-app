@@ -3,6 +3,7 @@
 /* eslint-disable indent */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 
@@ -34,17 +35,21 @@ const addThreadsNeutralVoteActionCreator = ({ threadId, userId }) => ({
 const asyncAddThread =
   ({ title, body, category = '' }) =>
   async (dispatch) => {
+    dispatch(showLoading());
     try {
       const thread = await api.createThreads({ title, body, category });
       dispatch(addThreadActionCreator(thread));
     } catch (error) {
       console.log(error.message);
     }
+
+    dispatch(hideLoading());
   };
 
 const asyncAddThreadsUpVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
   dispatch(addThreadsUpVoteActionCreator({ threadId, userId: authUser.id }));
+  dispatch(showLoading());
 
   try {
     await api.upVoteThreads(threadId);
@@ -52,11 +57,14 @@ const asyncAddThreadsUpVote = (threadId) => async (dispatch, getState) => {
     console.log(error.message);
     dispatch(addThreadsUpVoteActionCreator({ threadId, userId: authUser.id }));
   }
+
+  dispatch(hideLoading());
 };
 
 const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
   dispatch(addThreadsDownVoteActionCreator({ threadId, userId: authUser.id }));
+  dispatch(showLoading());
 
   try {
     await api.downVoteThreads(threadId);
@@ -66,6 +74,8 @@ const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
       addThreadsDownVoteActionCreator({ threadId, userId: authUser.id })
     );
   }
+
+  dispatch(hideLoading());
 };
 
 const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
@@ -74,6 +84,7 @@ const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
     addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id })
   );
 
+  dispatch(showLoading());
   try {
     await api.neutralizeVoteThreads(threadId);
   } catch (error) {
@@ -82,6 +93,8 @@ const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
       addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id })
     );
   }
+
+  dispatch(hideLoading());
 };
 
 export {

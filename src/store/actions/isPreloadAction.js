@@ -3,6 +3,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 import { setAuthUserActionCreator } from './authUserAction';
@@ -13,6 +14,8 @@ const setIsPreloadActionCreator = (isPreload) => ({
 });
 
 const asyncPreloadProcess = () => async (dispatch) => {
+  dispatch(showLoading());
+
   try {
     // preload process
     const authUser = await api.getOwnProfile();
@@ -24,6 +27,8 @@ const asyncPreloadProcess = () => async (dispatch) => {
     // end preload process
     dispatch(setIsPreloadActionCreator(false));
   }
+
+  dispatch(hideLoading());
 };
 
 export { setIsPreloadActionCreator, asyncPreloadProcess };

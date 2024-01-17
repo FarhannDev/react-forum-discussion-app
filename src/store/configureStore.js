@@ -1,4 +1,6 @@
+/* eslint-disable comma-dangle */
 import { configureStore } from '@reduxjs/toolkit';
+import { loadingBarReducer } from 'react-redux-loading-bar';
 import authUserReducer from './reducers/authUserReducer';
 import isPreloadReducer from './reducers/isPreloadReducer';
 import usersReducer from './reducers/usersReducer';
@@ -14,6 +16,7 @@ const store = configureStore({
     threads: threadsReducer,
     detailThread: detailThreadReducer,
     leaderBoards: leaderBoardsReducer,
+    loadingBar: loadingBarReducer,
   },
 });
 

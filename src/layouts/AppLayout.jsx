@@ -6,10 +6,12 @@ import { ToastContainer } from 'react-toastify';
 import Helmet from 'react-helmet';
 import { ReactSEOMetaTags } from 'react-seo-meta-tags';
 import MenuTopNavigation from '../components/menu/MenuTopNavigation';
+import Loading from '../components/common/Loading';
 
 export default function AppLayout({ children }) {
   return (
     <>
+      <Loading />
       <MenuTopNavigation />
       <ReactSEOMetaTags
         render={(el) => <Helmet>{el}</Helmet>}
@@ -32,6 +34,8 @@ export default function AppLayout({ children }) {
         }}
       />
 
+      <main className="app-content-main">{children}</main>
+
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -44,8 +48,6 @@ export default function AppLayout({ children }) {
         pauseOnHover
         theme="light"
       />
-
-      <main className="app-content-main">{children}</main>
     </>
   );
 }

@@ -252,3 +252,9 @@ input[type='text'] {
   width: 450px;
   height: auto;
 }
+
+.loading {
+  position: absolute;
+  top: 0;
+  height: 3px;
+}

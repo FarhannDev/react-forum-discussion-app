@@ -3,6 +3,8 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
+
 import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 
@@ -18,6 +20,7 @@ const unsetAuthUserActionCreator = () => ({
 const asyncSetAuthUser =
   ({ email, password }) =>
   async (dispatch) => {
+    dispatch(showLoading());
     try {
       const token = await api.login({ email, password });
       api.putAccessToken(token);
@@ -27,6 +30,8 @@ const asyncSetAuthUser =
     } catch (error) {
       console.log(error.message);
     }
+
+    dispatch(hideLoading());
   };
 
 const asyncUnsetAuthUser = () => (dispatch) => {
