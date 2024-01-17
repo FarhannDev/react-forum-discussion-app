@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
+import PropTypes from 'prop-types'; // ES6
 import ContentEditable from 'react-contenteditable';
 import { Card, Form, Button } from 'react-bootstrap';
 import useInput from '../../hooks/useInput';
@@ -77,3 +78,7 @@ export default function ThreadFormInput({ thread }) {
     </Card>
   );
 }
+
+ThreadFormInput.propTypes = {
+  thread: PropTypes.func.isRequired,
+};

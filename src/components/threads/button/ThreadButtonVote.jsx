@@ -1,6 +1,8 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import {
@@ -77,3 +79,9 @@ export default function ThreadButtonVote({ threadId, upVotes, downVotes }) {
     </div>
   );
 }
+
+ThreadButtonVote.propTypes = {
+  threadId: PropTypes.string.isRequired,
+  upVotes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotes: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
@@ -15,7 +16,6 @@ export default function LoginFormInput({ login }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     login({ email, password });
   };
 

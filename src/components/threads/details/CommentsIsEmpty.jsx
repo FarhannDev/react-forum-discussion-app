@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
+import PropTypes from 'prop-types'; // ES6
 import ContentHeading from '../../common/ContentHeading';
 
 export default function CommentsIsEmpty({ title }) {
@@ -14,3 +15,5 @@ export default function CommentsIsEmpty({ title }) {
     </div>
   );
 }
+
+CommentsIsEmpty.propTypes = { title: PropTypes.string.isRequired };

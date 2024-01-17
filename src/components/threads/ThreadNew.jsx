@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
+import PropTypes from 'prop-types'; // ES6
 import { useNavigate } from 'react-router-dom';
 import { Card, Form } from 'react-bootstrap';
 
@@ -34,3 +35,7 @@ export default function ThreadNew({ user }) {
     </Card>
   );
 }
+
+ThreadNew.propTypes = {
+  user: PropTypes.func.isRequired,
+};

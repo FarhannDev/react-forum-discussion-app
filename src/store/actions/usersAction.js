@@ -3,6 +3,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
+import { toast } from 'react-toastify';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
@@ -15,12 +16,12 @@ const receiveUsersActionCreator = (users) => ({
 const asyncRegisterUser =
   ({ name, email, password }) =>
   async (dispatch) => {
+    dispatch(showLoading());
     try {
-      dispatch(showLoading());
       await api.register({ name, email, password });
     } catch (error) {
-      dispatch(showLoading());
-      console.log(error.message);
+      // alert(error.message);
+      toast.error(error.message);
     }
     dispatch(hideLoading());
   };

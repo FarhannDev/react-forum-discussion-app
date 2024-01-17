@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/react-in-jsx-scope */

@@ -1,7 +1,9 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
 import { Card, ListGroup } from 'react-bootstrap';
+import PropTypes from 'prop-types'; // ES6
 import ContentHeading from '../common/ContentHeading';
 import '../../assets/styles/thread-card-category-item.css';
 
@@ -21,3 +23,7 @@ export default function ThreadPopularCategory({ threads }) {
     </Card>
   );
 }
+
+ThreadPopularCategory.propTypes = {
+  threads: PropTypes.arrayOf(PropTypes.object.isRequired),
+};

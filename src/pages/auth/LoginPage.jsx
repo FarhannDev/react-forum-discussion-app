@@ -2,7 +2,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-unused-vars */
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { asyncSetAuthUser } from '../../store/actions/authUserAction';
 import LoginFormInput from '../../components/auth/LoginFormInput';
@@ -10,12 +9,11 @@ import Heading from '../../components/auth/Heading';
 import SubHeading from '../../components/auth/SubHeading';
 
 export default function LoginPage() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogin = ({ email, password }) => {
-    navigate('/notifications');
     dispatch(asyncSetAuthUser({ email, password }));
   };
+
   return (
     <Container>
       <Card body className="auth-card-container">

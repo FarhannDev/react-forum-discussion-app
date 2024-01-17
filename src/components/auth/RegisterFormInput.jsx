@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useInput from '../../hooks/useInput';
 
 export default function RegisterFormInput({ register }) {
@@ -33,7 +34,9 @@ export default function RegisterFormInput({ register }) {
     if (passwordsMatch) {
       register({ name, email, password });
     } else {
-      alert('Password dan konfirmasi password tidak cocok');
+      // toast.info('Password dan konfirmasi password tidak cocok');
+      toast.error('Password dan konfirmasi password tidak cocok');
+
       setPassword('');
       setConfirmPasswordChange('');
     }
@@ -109,3 +112,5 @@ export default function RegisterFormInput({ register }) {
     </Form>
   );
 }
+
+RegisterFormInput.propTypes = { register: PropTypes.func.isRequired };

@@ -2,9 +2,10 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
 import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
 import { ReactSEOMetaTags } from 'react-seo-meta-tags';
+import { ToastContainer } from 'react-toastify';
 import MenuTopNavigation from '../components/menu/MenuTopNavigation';
 import Loading from '../components/common/Loading';
 
@@ -51,3 +52,7 @@ export default function AppLayout({ children }) {
     </>
   );
 }
+
+AppLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

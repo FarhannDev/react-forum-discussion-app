@@ -3,6 +3,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import ContentHeading from './ContentHeading';
 
 export default function SearchBarEmpty({ title }) {
@@ -19,3 +20,5 @@ export default function SearchBarEmpty({ title }) {
     </div>
   );
 }
+
+SearchBarEmpty.propTypes = { title: PropTypes.string.isRequired };

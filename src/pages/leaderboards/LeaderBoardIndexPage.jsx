@@ -70,6 +70,7 @@ export default function LeaderBoardIndexPage() {
       <Card body className="leaderboards-card-item">
         <ContentHeading title="Klasemen Pengguna Aktif" />
         <hr />
+
         <LeaderBoardSelected
           selectedFilter={selectedFilter}
           setSelectedFilter={handleFilterChange}

@@ -4,7 +4,7 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-
+import { toast } from 'react-toastify';
 import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
 
@@ -21,6 +21,7 @@ const asyncSetAuthUser =
   ({ email, password }) =>
   async (dispatch) => {
     dispatch(showLoading());
+
     try {
       const token = await api.login({ email, password });
       api.putAccessToken(token);
@@ -28,9 +29,8 @@ const asyncSetAuthUser =
       const authUser = await api.getOwnProfile();
       dispatch(setAuthUserActionCreator(authUser));
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
     }
-
     dispatch(hideLoading());
   };
 

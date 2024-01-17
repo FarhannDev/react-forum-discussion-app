@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -15,3 +16,8 @@ export default function ThreadsList({ threads, users }) {
     </Stack>
   );
 }
+
+ThreadsList.propTypes = {
+  threads: PropTypes.arrayOf(PropTypes.object.isRequired),
+  users: PropTypes.arrayOf(PropTypes.string.isRequired),
+};

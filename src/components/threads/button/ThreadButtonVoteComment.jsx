@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-shadow */
@@ -8,6 +9,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import {
   toggleUpVoteComment,
@@ -86,3 +88,9 @@ export default function ThreadButtonVoteComment({
     </div>
   );
 }
+
+ThreadButtonVoteComment.propTypes = {
+  commentId: PropTypes.string.isRequired,
+  downVote: PropTypes.arrayOf(PropTypes.string).isRequired,
+  upVote: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-shadow */
@@ -8,6 +9,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import parse from 'html-react-parser';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Card, Stack } from 'react-bootstrap';
 import { postedAt } from '../../../utils/showFormattedDate';
@@ -40,7 +42,6 @@ export default function CommentsItemListUser({
             </Link>
 
             <div className="d-flex flex-column">
-              {/* <div className="comments-card-item__user-name">{owner?.name}</div> */}
               <Link
                 to={`/users/${owner?.id}`}
                 className="link-offset-2 link-underline link-underline-opacity-0 comments-card-item__user-name"
@@ -66,3 +67,12 @@ export default function CommentsItemListUser({
     </Card>
   );
 }
+
+CommentsItemListUser.propTypes = {
+  id: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  owner: PropTypes.arrayOf(PropTypes.string).isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

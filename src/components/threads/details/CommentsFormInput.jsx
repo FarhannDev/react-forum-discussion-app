@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import ContentEditable from 'react-contenteditable';
 import { Form, Row, Col } from 'react-bootstrap';
 import { IoSend } from 'react-icons/io5';
@@ -44,3 +45,5 @@ export default function CommentsFormInput({ comment }) {
     </Row>
   );
 }
+
+CommentsFormInput.propTypes = { comment: PropTypes.func.isRequired };

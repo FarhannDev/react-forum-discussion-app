@@ -6,6 +6,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
+import PropTypes from 'prop-types'; // ES6
 import { Form, Row, Col } from 'react-bootstrap';
 
 export default function SelectedThreads({
@@ -40,3 +41,9 @@ export default function SelectedThreads({
     </Row>
   );
 }
+
+SelectedThreads.propTypes = {
+  threads: PropTypes.string.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  setSelectedCategory: PropTypes.func.isRequired,
+};

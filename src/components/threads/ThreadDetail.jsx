@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
@@ -8,6 +9,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import parse from 'html-react-parser';
+import PropTypes from 'prop-types'; // ES6
+
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card, Stack, Row, Col } from 'react-bootstrap';
@@ -37,7 +40,6 @@ export default function ThreadDetail({
   const handleComment = ({ content }) => {
     dispatch(asyncAddComment({ threadId: id, content }));
   };
-
   function ThreadUserInfo() {
     return (
       <Stack direction="horizontal" gap={3}>
@@ -128,3 +130,14 @@ export default function ThreadDetail({
 
   return content;
 }
+
+ThreadDetail.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  owner: PropTypes.object.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

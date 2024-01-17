@@ -21,53 +21,37 @@ const api = (() => {
     });
 
   const register = async ({ name, email, password }) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-      });
+    const response = await fetch(`${API_BASE_URL}/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password }),
+    });
 
-      const responseData = await response.json();
+    const responseData = await response.json();
+    const { status, message } = responseData;
+    if (status !== 'success') throw new Error(message);
+    const {
+      data: { user },
+    } = responseData;
 
-      // Periksa apakah responsenya sukses (status code 200-299)
-      if (!response.ok) {
-        throw new Error(responseData.message);
-      }
-
-      const {
-        data: { user },
-      } = responseData;
-
-      return user;
-    } catch (error) {
-      console.log(error.message);
-    }
+    return user;
   };
 
   const login = async ({ email, password }) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+    const response = await fetch(`${API_BASE_URL}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-      // Periksa apakah responsenya sukses (status code 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+    const responseData = await response.json();
+    const { status, message } = responseData;
+    if (status !== 'success') throw new Error(message);
+    const {
+      data: { token },
+    } = responseData;
 
-      // Ubah responsenya menjadi objek JSON
-      const responseData = await response.json();
-      const {
-        data: { token },
-      } = responseData;
-
-      return token;
-    } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
-    }
+    return token;
   };
 
   const createThreads = async ({ title, body, category = '' }) => {
@@ -78,17 +62,24 @@ const api = (() => {
         body: JSON.stringify({ title, body, category }),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
 
+        throw new Error(responseErr.message);
+      }
       const responseData = await response.json();
       const {
         data: { thread },
       } = responseData;
       return thread;
     } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
+      console.error('Error fetching data:', error.message);
     }
   };
 
@@ -102,9 +93,16 @@ const api = (() => {
           body: JSON.stringify({ content }),
         }
       );
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(responseErr.message);
       }
 
       const responseData = await response.json();
@@ -113,16 +111,24 @@ const api = (() => {
       } = responseData;
       return comment;
     } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
+      console.error('Error fetching data:', error.message);
     }
   };
 
   const getOwnProfile = async () => {
     try {
       const response = await _fetchWithAuth(`${API_BASE_URL}/users/me`);
-      // Periksa apakah responsenya sukses (status code 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
+
+        throw new Error(responseErr.message);
       }
 
       const responseData = await response.json();
@@ -132,7 +138,7 @@ const api = (() => {
 
       return user;
     } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
+      console.error('Error fetching data:', error.message);
     }
   };
 
@@ -221,10 +227,17 @@ const api = (() => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
 
+        throw new Error(responseErr.message);
+      }
       const responseData = await response.json();
       const {
         data: { vote },
@@ -245,8 +258,16 @@ const api = (() => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
+
+        throw new Error(responseErr.message);
       }
 
       const responseData = await response.json();
@@ -269,8 +290,16 @@ const api = (() => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
+
+        throw new Error(responseErr.message);
       }
 
       const responseData = await response.json();
@@ -292,9 +321,16 @@ const api = (() => {
           headers: { 'Content-Type': 'application/json' },
         }
       );
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(responseErr.message);
       }
 
       const responseData = await response.json();
@@ -317,9 +353,16 @@ const api = (() => {
           headers: { 'Content-Type': 'application/json' },
         }
       );
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(responseErr.message);
       }
 
       const responseData = await response.json();
@@ -343,10 +386,17 @@ const api = (() => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      if (!response.ok && response.status !== 'success') {
+        const responseErr = await response.json();
+        if (!response.ok && response.status === 401) {
+          // Contoh penanganan kesalahan otentikasi
+          throw new Error(
+            'Authentication failed. Please check your credentials.'
+          );
+        }
 
+        throw new Error(responseErr.message);
+      }
       const responseData = await response.json();
       const {
         data: { vote },

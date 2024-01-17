@@ -13,12 +13,8 @@ import { useDispatch } from 'react-redux';
 import { Card, Stack } from 'react-bootstrap';
 import { IoChatbubbleOutline, IoShareSocialOutline } from 'react-icons/io5';
 import { postedAt } from '../../utils/showFormattedDate';
-import {
-  asyncAddThreadsUpVote,
-  asyncAddThreadsDownVote,
-} from '../../store/actions/threadsAction';
-import '../../assets/styles/thread-card-item.css';
 import ThreadButtonVote from './button/ThreadButtonVote';
+import '../../assets/styles/thread-card-item.css';
 
 function ThreadCardItem({
   id,
@@ -31,11 +27,6 @@ function ThreadCardItem({
   user,
 }) {
   const dispatch = useDispatch();
-
-  const handleUpVote = () => {
-    dispatch(asyncAddThreadsUpVote(id));
-  };
-  const handleDownVote = () => dispatch(asyncAddThreadsDownVote(id));
 
   function ThreadUserInfo() {
     return (

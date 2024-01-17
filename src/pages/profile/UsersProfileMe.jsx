@@ -37,7 +37,7 @@ export default function UsersProfileMe() {
     }));
 
   const onLogout = () => {
-    navigate('/login');
+    navigate('/');
     dispatch(asyncUnsetAuthUser());
   };
 

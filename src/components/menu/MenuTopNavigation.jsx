@@ -10,8 +10,11 @@ import { IoSearchOutline, IoMedalOutline } from 'react-icons/io5';
 import { FaRegPenToSquare } from 'react-icons/fa6';
 
 import '../../assets/styles/menu-top-navigation.css';
+import { useSelector } from 'react-redux';
 
 export default function MenuTopNavigation() {
+  const { authUser } = useSelector((states) => states);
+
   const menu = [
     {
       title: 'Beranda',
@@ -62,34 +65,10 @@ export default function MenuTopNavigation() {
           <MenuItem />
         </Nav>
         <div className="d-flex justify-content-start d-none d-lg-flex">
-          {/* <button
-            type="button"
-            title="Ubah Bahasa Perangkat"
-            className="btn-toggle-color-mode d-none d-lg-block "
-          >
-            <Stack direction="horizontal" gap={2}>
-              <span className="locale-icon">
-                <MdGTranslate fontSize={28} color="5d5d5d" />
-              </span>
-              <span className="locale-codename">ID</span>
-            </Stack>
-          </button> */}
-          {/* <button
-            type="button"
-            title="Ubah Bahasa Perangkat"
-            className="btn-toggle-color-mode d-none d-lg-block "
-          >
-            <Stack direction="horizontal" gap={2}>
-              <span className="locale-icon">
-                <FaUser fontSize={28} color="5d5d5d" />
-              </span>
-              <span className="locale-codename">Farhan</span>
-            </Stack>
-          </button> */}
           <Link to="/users/me" aria-label="Profile">
             <img
-              src="https://ui-avatars.com/api/?name=Farhan&background=random"
-              alt="Faran"
+              src={authUser?.avatar}
+              alt={authUser?.name}
               className="img-fluid rounded-pill"
               width={40}
             />

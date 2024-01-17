@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/react-in-jsx-scope */
@@ -11,6 +12,7 @@
 import { Card, Stack } from 'react-bootstrap';
 import '../../../assets/styles/comment-user.css';
 import CommentsItemListUser from './CommentItemListUser';
+import PropTypes from 'prop-types'; // ES6
 
 export default function CommentsListUser({ comments }) {
   return (
@@ -21,3 +23,7 @@ export default function CommentsListUser({ comments }) {
     </Stack>
   );
 }
+
+CommentsListUser.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
