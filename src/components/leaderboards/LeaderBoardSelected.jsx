@@ -20,6 +20,7 @@ export default function LeaderBoardSelected({
           aria-label="Default select example"
           value={selectedFilter}
           onChange={setSelectedFilter}
+          className="leaderboard-selected"
         >
           <option value="all">Pilih Semua Nilai</option>
           <option value="highest">Urut Dari Nilai Tertinggi</option>

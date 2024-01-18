@@ -12,6 +12,8 @@ import {
   IoTimeOutline,
   IoMailOpenOutline,
   IoPersonOutline,
+  IoLogOut,
+  IoLogOutOutline,
 } from 'react-icons/io5';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
@@ -97,17 +99,18 @@ export default function UsersProfileMe() {
             <IoTimeOutline fontSize={16} className="me-2" />
             Bergabung Sejak 2023{' '}
           </div>
-        </div>
-      </div>
 
-      <div className="pt-3">
-        <button
-          onClick={onLogout}
-          type="button"
-          className="btn btn-danger rounded-pill btn-md"
-        >
-          Keluar Dari Aplikasi
-        </button>
+          <div>
+            <button
+              onClick={onLogout}
+              title="Klik Disini Untuk Keluar Dari Akun"
+              type="button"
+              className="btn border-0 px-0 mx-0 user-profile-subheading"
+            >
+              <IoLogOutOutline fontSize={18} /> Keluar
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="d-flex flex-column g-3 pt-5">

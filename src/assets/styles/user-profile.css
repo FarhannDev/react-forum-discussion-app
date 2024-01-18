@@ -22,3 +22,11 @@
   font-weight: 400;
   line-height: 150%; /* 18px */
 }
+
+[data-theme='dark'] .user-profile-title {
+  color: #fff;
+}
+
+[data-theme='dark'] .user-profile-subheading {
+  color: #fff;
+}

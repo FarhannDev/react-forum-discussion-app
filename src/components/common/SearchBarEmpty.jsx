@@ -11,7 +11,7 @@ export default function SearchBarEmpty({ title }) {
     <div className="page-notfound-container">
       <div className="mx-auto text-center">
         <img
-          src="/images/search_empty.jpg"
+          src="/images/search_empty.png"
           className="img-fluid page-notfound-images"
           alt="logo error"
         />

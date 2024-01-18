@@ -44,22 +44,6 @@
   line-height: 120%; /* 19.2px */
 }
 
-/* .comments-card-item__user .comments-card-item__title {
-  color: var(--Font-600, #5d5d5d);
-  text-overflow: ellipsis;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  text-decoration: none;
-}
-
-.comments-card-item__user .comments-card-item__user__title:hover {
-  cursor: pointer;
-  text-decoration: underline;
-} */
-
 .comments-card-item .comments-card-item__user__body {
   overflow: hidden;
   color: var(--Font-600, #5d5d5d);
@@ -70,4 +54,31 @@
   font-weight: 400;
   line-height: 1.8;
   text-align: start;
+}
+
+[data-theme='dark'] .comments-card-item {
+  background: var(--Font-950, #262626);
+  border: 0;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+[data-theme='dark'] .comments-card-item:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+[data-theme='dark'] .comments-card-item__user .comments-card-item__user-name {
+  color: #fff;
+}
+
+[data-theme='dark']
+  .comments-card-item
+  .comments-card-item__user
+  .comments-card-item__user-date {
+  color: #fff;
+}
+
+[data-theme='dark'] .comments-card-item .comments-card-item__user__body {
+  color: #fff;
 }

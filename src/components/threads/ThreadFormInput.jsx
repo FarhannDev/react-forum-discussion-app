@@ -7,6 +7,8 @@ import { Card, Form, Button } from 'react-bootstrap';
 import useInput from '../../hooks/useInput';
 import ContentHeading from '../common/ContentHeading';
 
+import '../../assets/styles/thread-form-input.css';
+
 export default function ThreadFormInput({ thread }) {
   const [title, onTitleChange] = useInput('');
   const [category, onCategoryChange] = useInput('');
@@ -69,7 +71,7 @@ export default function ThreadFormInput({ thread }) {
           <Button
             type="button"
             variant="outline-none"
-            className="notelist-form-input__button"
+            className="notelist-form-input__button text-secondary"
           >
             Batalkan
           </Button>

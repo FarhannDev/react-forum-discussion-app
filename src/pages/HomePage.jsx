@@ -1,3 +1,5 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable no-shadow */
 /* eslint-disable comma-dangle */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable indent */
@@ -7,17 +9,19 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
-import CreatableSelect from 'react-select/creatable';
+import Select from 'react-select';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import loadable from '@loadable/component';
+import { useTheme } from '../hooks/useTheme';
 import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMiddleware';
 // Code Splitting
 const ThreadsList = loadable(() => import('../components/threads/ThreadsList'));
 
 export default function HomePage() {
-  const { threads, users, authUser } = useSelector((state) => state);
+  const { threads, users } = useSelector((state) => state);
   const [selectedOption, setSelectedOption] = useState(null);
+  const { theme } = useTheme();
 
   const dispatch = useDispatch();
 
@@ -51,11 +55,11 @@ export default function HomePage() {
   return (
     <>
       <Container>
-        <CreatableSelect
+        <Select
           isClearable
           onChange={setSelectedOption}
           options={options}
-          className="mb-4"
+          className="mb-4 text-dark react-select-container"
           placeholder="Pilih Kategori Terpopuler"
         />
 

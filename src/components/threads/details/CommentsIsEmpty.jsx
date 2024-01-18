@@ -9,7 +9,10 @@ export default function CommentsIsEmpty({ title }) {
   return (
     <div className="comment-empty-container">
       <div className="mx-auto text-center">
-        <img src="/no_data.jpg" className="img-fluid comment-empty-images" />
+        <img
+          src="/images/no_data.png"
+          className="img-fluid comment-empty-images"
+        />
         <ContentHeading title={title} />
       </div>
     </div>

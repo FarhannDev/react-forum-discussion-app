@@ -15,6 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/auth.css';
 import './assets/styles/index.css';
 
+import { ThemeProvider } from './contexts/ThemeContext';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <React.StrictMode>
@@ -25,7 +27,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           v7_normalizeFormMethod: true,
         }}
       >
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>
   </Provider>

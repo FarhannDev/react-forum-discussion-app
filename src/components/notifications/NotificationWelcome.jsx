@@ -13,7 +13,7 @@ export default function NotificationWelcome() {
     <div className="page-notfound-container">
       <div className="mx-auto text-center">
         <img
-          src="/images/notification_welcome.jpg"
+          src="/images/notification_welcome.png"
           className="img-fluid page-notfound-images"
           alt="logo error"
         />

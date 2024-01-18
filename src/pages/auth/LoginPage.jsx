@@ -7,6 +7,8 @@
 import loadable from '@loadable/component';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import ReactSEOMetaTags from 'react-seo-meta-tags';
+import { Helmet } from 'react-helmet';
 import { asyncSetAuthUser } from '../../store/actions/authUserAction';
 
 // Code Splitting
@@ -24,11 +26,32 @@ export default function LoginPage() {
 
   return (
     <Container>
+      <ReactSEOMetaTags
+        render={(el) => <Helmet>{el}</Helmet>}
+        website={{
+          url: 'http://localhost:5173/',
+          title: 'Masuk Ke Akun - Dicoding Open Forum Discussion',
+          datePublished: new Date().toISOString(),
+          description:
+            'Proyek: Membangun Aplikasi React dengan Redux          ',
+          language: 'en-US',
+          author: {
+            email: 'farhan18042002@gmail.com',
+            name: 'Farhan',
+            image: 'https://avatars.githubusercontent.com/u/101630148?s=96&v=4',
+          },
+          site: {
+            siteName: 'DICODING OPEN DISCUSSION',
+            searchUrl: 'https://www.google.com/search?q=',
+          },
+        }}
+      />
+
       <Card body className="auth-card-container">
         <Row className="justify-content-start align-self-center align-items-center g-3 py-3">
           <Col lg={12} xl={6} md={12}>
             <img
-              src="/images/background/free_epik_auth_background.jpg"
+              src="/images/free_epik_auth_background.png"
               className="img-fluid"
               alt="logo"
             />

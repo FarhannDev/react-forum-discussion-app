@@ -33,3 +33,12 @@
     width: 1000px;
   }
 }
+
+[data-theme='dark'] .navbar {
+  background-color: #262626;
+  color: #fff;
+}
+
+[data-theme='dark'] .navbar .nav-link {
+  color: var(--Font-50, #f6f6f6);
+}

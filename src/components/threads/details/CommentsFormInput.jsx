@@ -32,7 +32,7 @@ export default function CommentsFormInput({ comment }) {
 
               <button
                 disabled={!disabledButton}
-                className="btn border-0"
+                className="btn border-0 comments-btn-send"
                 type="submit"
                 title="Kirimkan"
               >

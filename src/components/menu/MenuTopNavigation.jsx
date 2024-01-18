@@ -6,14 +6,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FiHome, FiBell } from 'react-icons/fi';
-import { IoSearchOutline, IoMedalOutline } from 'react-icons/io5';
+import {
+  IoSearchOutline,
+  IoMedalOutline,
+  IoSunnyOutline,
+  IoMoonSharp,
+} from 'react-icons/io5';
 import { FaRegPenToSquare } from 'react-icons/fa6';
 
 import '../../assets/styles/menu-top-navigation.css';
 import { useSelector } from 'react-redux';
+import { useTheme } from '../../hooks/useTheme';
 
 export default function MenuTopNavigation() {
   const { authUser } = useSelector((states) => states);
+  const { theme, toggleTheme } = useTheme();
 
   const menu = [
     {
@@ -64,6 +71,17 @@ export default function MenuTopNavigation() {
         <Nav className="me-auto d-none d-lg-flex justify-content-start align-item-center">
           <MenuItem />
         </Nav>
+        <button
+          onClick={toggleTheme}
+          type="button"
+          className="btn border-0 mx-md-2"
+        >
+          {theme === 'dark' ? (
+            <IoMoonSharp fontSize={28} color="f6f6f6" />
+          ) : (
+            <IoSunnyOutline fontSize={28} color="000" />
+          )}
+        </button>
         <div className="d-flex justify-content-start d-none d-lg-flex">
           <Link to="/users/me" aria-label="Profile">
             <img

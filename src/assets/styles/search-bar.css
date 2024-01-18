@@ -24,3 +24,13 @@ input[type='text'] {
   line-height: 120%;
   text-transform: capitalize;
 }
+
+[data-theme='dark'] .search-bar-item .form-control {
+  border: 0.917px solid var(--Font-400, #888);
+  background-color: #262626;
+  color: #fff;
+}
+
+[data-theme='dark'] .search-bar-item .form-control::placeholder {
+  color: #fff;
+}
