@@ -12,7 +12,7 @@ export default function ErrorNotFound({ title = 'Halaman Tidak Ditemukan' }) {
     <div className="page-notfound-container">
       <div className="mx-auto text-center">
         <img
-          src="/404_error_not_found.jpg"
+          src="/images/404_error_not_found.png"
           className="img-fluid page-notfound-images"
           alt="logo error"
         />
