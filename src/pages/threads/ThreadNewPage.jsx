@@ -1,7 +1,4 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -12,9 +9,7 @@ import loadable from '@loadable/component';
 import { asyncAddThread } from '../../store/actions/threadsAction';
 
 // Code Splitting
-const ThreadFormInput = loadable(() =>
-  import('../../components/threads/ThreadFormInput')
-);
+const ThreadFormInput = loadable(() => import('../../components/threads/ThreadFormInput'));
 
 export default function ThredNewPage() {
   const dispatch = useDispatch();

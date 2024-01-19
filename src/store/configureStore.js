@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 import { configureStore } from '@reduxjs/toolkit';
 import { loadingBarReducer } from 'react-redux-loading-bar';
 import authUserReducer from './reducers/authUserReducer';

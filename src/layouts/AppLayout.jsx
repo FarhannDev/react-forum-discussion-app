@@ -1,9 +1,3 @@
-/* eslint-disable function-paren-newline */
-/* eslint-disable comma-dangle */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable no-undef */
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -12,9 +6,7 @@ import { ReactSEOMetaTags } from 'react-seo-meta-tags';
 import { ToastContainer } from 'react-toastify';
 
 // Code Splitting
-const MenuTopNavigation = loadable(() =>
-  import('../components/menu/MenuTopNavigation')
-);
+const MenuTopNavigation = loadable(() => import('../components/menu/MenuTopNavigation'));
 const Loading = loadable(() => import('../components/common/Loading'));
 
 export default function AppLayout({ children }) {

@@ -16,6 +16,7 @@ export default function NotificationWelcome() {
           src="/images/notification_welcome.png"
           className="img-fluid page-notfound-images"
           alt="logo error"
+          loading="lazy"
         />
         <ContentHeading title="Selamat Datang di Dicoding Open Discussion!" />
         <ContentHeading title="Tempat diskusi seputar teknologi, dunia dan lainnya." />

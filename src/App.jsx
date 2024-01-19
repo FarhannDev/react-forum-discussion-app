@@ -1,11 +1,5 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable function-paren-newline */
-/* eslint-disable comma-dangle */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/react-in-jsx-scope */
+import React, { useEffect } from 'react';
 import loadable from '@loadable/component';
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { asyncPreloadProcess } from './store/actions/isPreloadAction';
@@ -20,12 +14,8 @@ const Home = loadable(() => import('./pages/HomePage'));
 const ThreadIndex = loadable(() => import('./pages/threads/ThreadIndexPage'));
 const ThreadAdd = loadable(() => import('./pages/threads/ThreadNewPage'));
 const ThreadDetail = loadable(() => import('./pages/threads/ThreadDetailPage'));
-const LeaderboardIndex = loadable(() =>
-  import('./pages/leaderboards/LeaderBoardIndexPage')
-);
-const NotificationIndex = loadable(() =>
-  import('./pages/notifications/NotificationIndexPage')
-);
+const LeaderboardIndex = loadable(() => import('./pages/leaderboards/LeaderBoardIndexPage'));
+const NotificationIndex = loadable(() => import('./pages/notifications/NotificationIndexPage'));
 const UserProfileMe = loadable(() => import('./pages/profile/UsersProfileMe'));
 const UserProfileUser = loadable(() => import('./pages/profile/UsersProfile'));
 

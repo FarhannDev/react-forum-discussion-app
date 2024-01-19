@@ -1,24 +1,15 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-undef */
-/* eslint-disable comma-dangle */
-/* eslint-disable no-console */
 /* eslint-disable consistent-return */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable no-return-await */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
 const api = (() => {
   const API_BASE_URL = 'https://forum-api.dicoding.dev/v1';
   const putAccessToken = (token) => localStorage.setItem('token', token);
   const getAccessToken = () => localStorage.getItem('token');
-  const _fetchWithAuth = async (url, options = {}) =>
-    fetch(url, {
-      ...options,
-      headers: {
-        ...options.headers,
-        Authorization: `Bearer ${getAccessToken()}`,
-      },
-    });
+  const _fetchWithAuth = async (url, options = {}) => fetch(url, {
+    ...options,
+    headers: {
+      ...options.headers,
+      Authorization: `Bearer ${getAccessToken()}`,
+    },
+  });
 
   const register = async ({ name, email, password }) => {
     const response = await fetch(`${API_BASE_URL}/register`, {
@@ -67,7 +58,7 @@ const api = (() => {
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -91,14 +82,14 @@ const api = (() => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ content }),
-        }
+        },
       );
       if (!response.ok && response.status !== 'success') {
         const responseErr = await response.json();
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -124,7 +115,7 @@ const api = (() => {
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -224,7 +215,7 @@ const api = (() => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
 
       if (!response.ok && response.status !== 'success') {
@@ -232,7 +223,7 @@ const api = (() => {
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -255,7 +246,7 @@ const api = (() => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
 
       if (!response.ok && response.status !== 'success') {
@@ -263,7 +254,7 @@ const api = (() => {
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -287,7 +278,7 @@ const api = (() => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
 
       if (!response.ok && response.status !== 'success') {
@@ -295,7 +286,7 @@ const api = (() => {
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -319,14 +310,14 @@ const api = (() => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
       if (!response.ok && response.status !== 'success') {
         const responseErr = await response.json();
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -351,14 +342,14 @@ const api = (() => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
       if (!response.ok && response.status !== 'success') {
         const responseErr = await response.json();
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 
@@ -383,7 +374,7 @@ const api = (() => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
 
       if (!response.ok && response.status !== 'success') {
@@ -391,7 +382,7 @@ const api = (() => {
         if (!response.ok && response.status === 401) {
           // Contoh penanganan kesalahan otentikasi
           throw new Error(
-            'Authentication failed. Please check your credentials.'
+            'Authentication failed. Please check your credentials.',
           );
         }
 

@@ -1,13 +1,8 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-unused-vars */
+import React from 'react';
 import loadable from '@loadable/component';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import {
+  Container, Row, Col, Card,
+} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
@@ -15,9 +10,7 @@ import { Helmet } from 'react-helmet';
 import { asyncRegisterUser } from '../../store/actions/usersAction';
 
 // Code Spiltting
-const RegisterFormInput = loadable(() =>
-  import('../../components/auth/RegisterFormInput')
-);
+const RegisterFormInput = loadable(() => import('../../components/auth/RegisterFormInput'));
 const Heading = loadable(() => import('../../components/auth/Heading'));
 const SubHeading = loadable(() => import('../../components/auth/SubHeading'));
 
@@ -57,6 +50,7 @@ export default function RegisterPage() {
               src="/images/free_epik_auth_background.png"
               className="img-fluid"
               alt="logo"
+              loading="lazy"
             />
           </Col>
           <Col lg={12} xl={6} md={12}>

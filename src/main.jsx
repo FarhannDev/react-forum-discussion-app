@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable comma-dangle */
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -32,5 +27,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>
-  </Provider>
+  </Provider>,
 );

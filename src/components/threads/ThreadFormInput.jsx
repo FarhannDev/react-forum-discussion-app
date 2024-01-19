@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import ContentEditable from 'react-contenteditable';

@@ -1,10 +1,3 @@
-/* eslint-disable indent */
-/* eslint-disable comma-dangle */
-/* eslint-disable no-empty */
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
-// import ActionType from '../../constants/ActionTypes';
-
 import ActionType from '../../constants/ActionType';
 
 const detailThreadReducer = (detailThread = null, action = {}) => {
@@ -26,8 +19,8 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
           : detailThread.upVotesBy.concat([action.payload.userId]),
         downVotesBy: detailThread.downVotesBy.includes(action.payload.userId)
           ? detailThread.downVotesBy.filter(
-              (id) => id !== action.payload.userId
-            )
+            (id) => id !== action.payload.userId,
+          )
           : detailThread.downVotesBy,
       };
     case ActionType.DOWN_VOTE_THREAD_DETAIL:
@@ -35,8 +28,8 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
         ...detailThread,
         downVotesBy: detailThread.downVotesBy.includes(action.payload.userId)
           ? detailThread.downVotesBy.filter(
-              (id) => id !== action.payload.userId
-            )
+            (id) => id !== action.payload.userId,
+          )
           : detailThread.downVotesBy.concat([action.payload.userId]),
         upVotesBy: detailThread.upVotesBy.includes(action.payload.userId)
           ? detailThread.upVotesBy.filter((id) => id !== action.payload.userId)
@@ -47,8 +40,8 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
         ...detailThread,
         downVotesBy: detailThread.downVotesBy.includes(action.payload.userId)
           ? detailThread.downVotesBy.filter(
-              (id) => id !== action.payload.userId
-            )
+            (id) => id !== action.payload.userId,
+          )
           : detailThread.downVotesBy,
         upVotesBy: detailThread.upVotesBy.includes(action.payload.userId)
           ? detailThread.upVotesBy.filter((id) => id !== action.payload.userId)
@@ -67,8 +60,8 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
                 : comment.upVotesBy.concat([action.payload.userId]),
               downVotesBy: comment.downVotesBy.includes(action.payload.userId)
                 ? comment.downVotesBy.filter(
-                    (id) => id !== action.payload.userId
-                  )
+                  (id) => id !== action.payload.userId,
+                )
                 : comment.downVotesBy,
             };
           }
@@ -85,8 +78,8 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
               ...comment,
               downVotesBy: comment.downVotesBy.includes(action.payload.userId)
                 ? comment.downVotesBy.filter(
-                    (id) => id !== action.payload.userId
-                  )
+                  (id) => id !== action.payload.userId,
+                )
                 : comment.downVotesBy.concat([action.payload.userId]),
               upVotesBy: comment.upVotesBy.includes(action.payload.userId)
                 ? comment.upVotesBy.filter((id) => id !== action.payload.userId)
@@ -106,8 +99,8 @@ const detailThreadReducer = (detailThread = null, action = {}) => {
               ...comment,
               downVotesBy: comment.downVotesBy.includes(action.payload.userId)
                 ? comment.downVotesBy.filter(
-                    (id) => id !== action.payload.userId
-                  )
+                  (id) => id !== action.payload.userId,
+                )
                 : comment.downVotesBy,
               upVotesBy: comment.upVotesBy.includes(action.payload.userId)
                 ? comment.upVotesBy.filter((id) => id !== action.payload.userId)

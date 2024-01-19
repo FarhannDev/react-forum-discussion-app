@@ -1,27 +1,19 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
-/* eslint-disable import/order */
-/* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-useless-fragment */
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import {
-  toggleUpVoteComment,
-  toggleDownVoteComment,
-  toggleClearVoteComment,
-} from '../../../store/actions/detailThreadAction';
 import {
   IoThumbsUpOutline,
   IoThumbsDownOutline,
   IoThumbsDown,
   IoThumbsUp,
 } from 'react-icons/io5';
+import {
+  toggleUpVoteComment,
+  toggleDownVoteComment,
+  toggleClearVoteComment,
+} from '../../../store/actions/detailThreadAction';
 import '../../../assets/styles/thread-card-item.css';
 
 export default function ThreadButtonVoteComment({

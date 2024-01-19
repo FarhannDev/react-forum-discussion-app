@@ -1,7 +1,5 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types'; // ES6
 import ContentHeading from '../common/ContentHeading';

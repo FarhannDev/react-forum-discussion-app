@@ -1,9 +1,4 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/react-in-jsx-scope */
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
@@ -20,15 +15,9 @@ import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkM
 import '../../assets/styles/user-profile.css';
 
 // Code Splitting
-const ContentHeading = loadable(() =>
-  import('../../components/common/ContentHeading')
-);
-const ThreadsList = loadable(() =>
-  import('../../components/threads/ThreadsList')
-);
-const CommentsIsEmpty = loadable(() =>
-  import('../../components/threads/details/CommentsIsEmpty')
-);
+const ContentHeading = loadable(() => import('../../components/common/ContentHeading'));
+const ThreadsList = loadable(() => import('../../components/threads/ThreadsList'));
+const CommentsIsEmpty = loadable(() => import('../../components/threads/details/CommentsIsEmpty'));
 
 export default function UsersProfile() {
   const { id } = useParams();
@@ -91,7 +80,8 @@ export default function UsersProfile() {
           </div>
           <div className="user-profile-subheading">
             <IoTimeOutline fontSize={16} className="me-2" />
-            Bergabung Sejak 2023{' '}
+            Bergabung Sejak 2023
+            {' '}
           </div>
         </div>
       </div>

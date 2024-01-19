@@ -1,14 +1,13 @@
-/* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable react/prop-types */
 import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   // KODE INI UNTUK SETTING TEMA PERANGKAT
   const [theme, setTheme] = useState(
-    () => localStorage.getItem('theme-dicoding-open-discussion') || 'light'
+    () => localStorage.getItem('theme-dicoding-open-discussion') || 'light',
   );
 
   const toggleTheme = () => {
@@ -32,3 +31,7 @@ export function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

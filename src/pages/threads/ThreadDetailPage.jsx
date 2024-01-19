@@ -1,10 +1,3 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/prop-types */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
@@ -16,9 +9,7 @@ import { asyncReceiveThreadsDetail } from '../../store/actions/detailThreadActio
 
 // Code Splitting
 
-const ThreadDetail = loadable(() =>
-  import('../../components/threads/ThreadDetail')
-);
+const ThreadDetail = loadable(() => import('../../components/threads/ThreadDetail'));
 
 export default function ThreadDetailPage() {
   const { id } = useParams();

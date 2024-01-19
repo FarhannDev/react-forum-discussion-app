@@ -1,8 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable indent */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-unused-vars */
 import ActionType from '../../constants/ActionType';
 
 const receiveLeaderBoardsActionCreator = (leaderboards) => ({

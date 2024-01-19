@@ -1,8 +1,3 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable no-console */
-/* eslint-disable indent */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable operator-linebreak */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import ActionType from '../../constants/ActionType';
 import api from '../../services/api';
@@ -32,19 +27,17 @@ const addThreadsNeutralVoteActionCreator = ({ threadId, userId }) => ({
   payload: { threadId, userId },
 });
 
-const asyncAddThread =
-  ({ title, body, category = '' }) =>
-  async (dispatch) => {
-    dispatch(showLoading());
-    try {
-      const thread = await api.createThreads({ title, body, category });
-      dispatch(addThreadActionCreator(thread));
-    } catch (error) {
-      console.log(error.message);
-    }
+const asyncAddThread = ({ title, body, category = '' }) => async (dispatch) => {
+  dispatch(showLoading());
+  try {
+    const thread = await api.createThreads({ title, body, category });
+    dispatch(addThreadActionCreator(thread));
+  } catch (error) {
+    console.log(error.message);
+  }
 
-    dispatch(hideLoading());
-  };
+  dispatch(hideLoading());
+};
 
 const asyncAddThreadsUpVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
@@ -71,7 +64,7 @@ const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
   } catch (error) {
     console.log(error.message);
     dispatch(
-      addThreadsDownVoteActionCreator({ threadId, userId: authUser.id })
+      addThreadsDownVoteActionCreator({ threadId, userId: authUser.id }),
     );
   }
 
@@ -81,7 +74,7 @@ const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
 const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
   dispatch(
-    addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id })
+    addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id }),
   );
 
   dispatch(showLoading());
@@ -90,7 +83,7 @@ const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
   } catch (error) {
     console.log(error.message);
     dispatch(
-      addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id })
+      addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id }),
     );
   }
 

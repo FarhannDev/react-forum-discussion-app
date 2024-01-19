@@ -1,11 +1,5 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable operator-linebreak */
-/* eslint-disable react/prop-types */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Row, Col } from 'react-bootstrap';
 
 export default function LeaderBoardSelected({
@@ -30,3 +24,8 @@ export default function LeaderBoardSelected({
     </Row>
   );
 }
+
+LeaderBoardSelected.propTypes = {
+  selectedFilter: PropTypes.string.isRequired,
+  setSelectedFilter: PropTypes.func.isRequired,
+};

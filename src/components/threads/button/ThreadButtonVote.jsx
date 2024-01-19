@@ -1,6 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';

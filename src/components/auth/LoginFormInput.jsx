@@ -1,8 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
@@ -58,7 +53,8 @@ export default function LoginFormInput({ login }) {
 
       <div className="d-flex justify-content-center py-4">
         <div>
-          <span className="auth-form-label">Belum punya akun?</span>{' '}
+          <span className="auth-form-label">Belum punya akun?</span>
+          {' '}
           <Link
             className="auth-form-label text-decoration-underline"
             to="/register"

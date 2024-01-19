@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import PropTypes from 'prop-types';
 import loadable from '@loadable/component';

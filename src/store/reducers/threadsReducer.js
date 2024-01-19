@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
 import ActionType from '../../constants/ActionType';
 
 const threadsReducer = (threads = [], action = {}) => {

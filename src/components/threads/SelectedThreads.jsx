@@ -1,10 +1,5 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
-/* eslint-disable react/prop-types */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import { Form, Row, Col } from 'react-bootstrap';
@@ -29,7 +24,7 @@ export default function SelectedThreads({
             .filter(
               (value, index, self) =>
                 index ===
-                self.findIndex((obj) => obj.category === value.category)
+                self.findIndex((obj) => obj.category === value.category),
             )
             .map((thread) => (
               <option key={thread.id} value={thread.category}>

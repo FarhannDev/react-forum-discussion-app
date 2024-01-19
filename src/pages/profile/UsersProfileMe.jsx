@@ -1,18 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable comma-dangle */
-/* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/react-in-jsx-scope */
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import {
   IoTimeOutline,
   IoMailOpenOutline,
   IoPersonOutline,
-  IoLogOut,
   IoLogOutOutline,
 } from 'react-icons/io5';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
@@ -22,18 +15,11 @@ import { asyncUnsetAuthUser } from '../../store/actions/authUserAction';
 import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
 import '../../assets/styles/user-profile.css';
 // Code Splitting
-const ContentHeading = loadable(() =>
-  import('../../components/common/ContentHeading')
-);
-const ThreadsList = loadable(() =>
-  import('../../components/threads/ThreadsList')
-);
-const CommentsIsEmpty = loadable(() =>
-  import('../../components/threads/details/CommentsIsEmpty')
-);
+const ContentHeading = loadable(() => import('../../components/common/ContentHeading'));
+const ThreadsList = loadable(() => import('../../components/threads/ThreadsList'));
+const CommentsIsEmpty = loadable(() => import('../../components/threads/details/CommentsIsEmpty'));
 
 export default function UsersProfileMe() {
-  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { users, threads, authUser } = useSelector((state) => state);
@@ -97,7 +83,8 @@ export default function UsersProfileMe() {
           </div>
           <div className="user-profile-subheading">
             <IoTimeOutline fontSize={16} className="me-2" />
-            Bergabung Sejak 2023{' '}
+            Bergabung Sejak 2023
+            {' '}
           </div>
 
           <div>
@@ -107,7 +94,9 @@ export default function UsersProfileMe() {
               type="button"
               className="btn border-0 px-0 mx-0 user-profile-subheading"
             >
-              <IoLogOutOutline fontSize={18} /> Keluar
+              <IoLogOutOutline fontSize={18} />
+              {' '}
+              Keluar
             </button>
           </div>
         </div>

@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../services/api';
 import { receiveUsersActionCreator } from '../actions/usersAction';

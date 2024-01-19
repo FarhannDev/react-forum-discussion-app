@@ -1,7 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable react/prop-types */
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaHouseChimney } from 'react-icons/fa6';
@@ -15,6 +13,7 @@ export default function ErrorNotFound({ title = 'Halaman Tidak Ditemukan' }) {
           src="/images/404_error_not_found.png"
           className="img-fluid page-notfound-images"
           alt="logo error"
+          loading="lazy"
         />
         <ContentHeading title="404" />
         <ContentHeading title={title} />
