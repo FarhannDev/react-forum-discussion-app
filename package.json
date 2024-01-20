@@ -9,7 +9,8 @@
     "lint": "eslint ./src --ext .jsx --ext .js",
     "lint:fix": "npx eslint --fix ./src --ext .jsx --ext .js",
     "preview": "vite preview",
-    "build:preview": "vite build && vite preview"
+    "build:preview": "vite build && vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@loadable/component": "^5.16.3",
@@ -42,6 +43,8 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.0.8"
+    "jsdom": "^23.2.0",
+    "vite": "^5.0.8",
+    "vitest": "^1.2.1"
   }
 }
