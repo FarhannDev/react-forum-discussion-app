@@ -20,7 +20,7 @@ export default function LoginFormInput({ login }) {
         <Form.Label className="auth-form-label">Email address</Form.Label>
         <Form.Control
           type="email"
-          placeholder="Masukan Email Address"
+          placeholder="Email Address"
           className="auth-form-input"
           autoComplete="email"
           value={email}
@@ -32,7 +32,7 @@ export default function LoginFormInput({ login }) {
         <Form.Label className="auth-form-label">Password</Form.Label>
         <Form.Control
           type="password"
-          placeholder="Masukan Password"
+          placeholder="Password"
           className="auth-form-input"
           value={password}
           onChange={onPasswordChange}

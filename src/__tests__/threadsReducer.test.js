@@ -22,7 +22,6 @@ describe('threadsReducer function', () => {
     const action = { type: 'UNKNOWN' };
     // action
     const nextState = threadsReducer(initialState, action);
-
     // assert
     expect(nextState).toEqual(initialState);
   });

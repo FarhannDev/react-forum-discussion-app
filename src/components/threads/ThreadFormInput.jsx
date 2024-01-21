@@ -54,6 +54,7 @@ export default function ThreadFormInput({ thread }) {
             className="thread-form-input__textarea"
             title="Buat Pertanyaan Baru "
             tagName="article"
+            data-testid="editable-content"
           />
         </Form.Group>
 
@@ -63,6 +64,7 @@ export default function ThreadFormInput({ thread }) {
             type="submit"
             variant="danger"
             className="notelist-form-input__button rounded-pill"
+            data-testid="button-handler"
           >
             Buat Pertanyaan Baru
           </Button>

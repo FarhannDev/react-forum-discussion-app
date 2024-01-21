@@ -278,7 +278,7 @@ describe('detailThreadReducer function', () => {
     expect(nextState.comments.length).toBe(2); // Assuming the new comment is added
 
     const addNewComment = nextState.comments.find(
-      (comment) => comment.id === 'comment-2'
+      (comment) => comment.id === 'comment-2',
     );
 
     expect(addNewComment).toBeTruthy();
@@ -327,7 +327,7 @@ describe('detailThreadReducer function', () => {
 
     // assert
     const updatedComment = nextState.comments.find(
-      (comment) => comment.id === action.payload.commentId
+      (comment) => comment.id === action.payload.commentId,
     );
 
     expect(updatedComment.upVotesBy).toEqual([action.payload.userId]);
@@ -376,7 +376,7 @@ describe('detailThreadReducer function', () => {
 
     // assert
     const updatedComment = nextState.comments.find(
-      (comment) => comment.id === action.payload.commentId
+      (comment) => comment.id === action.payload.commentId,
     );
 
     expect(updatedComment.downVotesBy).toEqual([action.payload.userId]);
@@ -425,7 +425,7 @@ describe('detailThreadReducer function', () => {
 
     // assert
     const updatedComment = nextState.comments.find(
-      (comment) => comment.id === action.payload.commentId
+      (comment) => comment.id === action.payload.commentId,
     );
 
     expect(updatedComment.upVotesBy).toEqual([]);

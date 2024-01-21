@@ -52,11 +52,11 @@ export default function RegisterFormInput({ register }) {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInputEmail">
+      <Form.Group className="mb-3">
         <Form.Label className="auth-form-label">Email address</Form.Label>
         <Form.Control
           type="email"
-          placeholder="Masukan Email Address"
+          placeholder="Masukan Alamat Email"
           className="auth-form-input"
           autoComplete="email"
           value={email}

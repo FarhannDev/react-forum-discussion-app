@@ -25,6 +25,7 @@ export default function CommentsFormInput({ comment }) {
                 className="comments-form-input__textarea me-auto"
                 title="Tuliskan semua yang ada di pikiran kamu..."
                 tagName="article"
+                data-testid="editable-content"
               />
 
               <button
