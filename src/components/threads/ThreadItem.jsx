@@ -82,7 +82,7 @@ function ThreadCardItem({
               upVotes={upVotesBy}
               downVotes={downVotesBy}
             />
-            <div className="thread-card-item__action-vote-comment">
+            <div className="thread-card-item__action me-2">
               <button type="button" className="btn btn-vote" title="Komentar">
                 <div className="d-flex flex-row px-2">
                   <IoChatbubbleOutline fontSize={24} className="me-1" />
@@ -91,9 +91,9 @@ function ThreadCardItem({
               </button>
             </div>
 
-            <div className="thread-card-item__action-vote-comment">
+            <div className="thread-card-item__action">
               <button type="button" className="btn btn-vote" title="Bagikan">
-                <IoShareSocialOutline fontSize={24} />
+                <IoShareSocialOutline fontSize={24} /> Bagikan
               </button>
             </div>
           </div>
