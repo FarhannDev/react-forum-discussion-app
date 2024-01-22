@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import { describe, beforeEach, afterEach, it, vi, expect } from 'vitest';
+import {
+  describe, beforeEach, afterEach, it, vi, expect,
+} from 'vitest';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import {
   fakeUsersResponse,
@@ -53,13 +55,13 @@ describe('asyncPopulateThunkMiddleware thunk', () => {
     // assert
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(
-      receiveUsersActionCreator(fakeUsersResponse)
+      receiveUsersActionCreator(fakeUsersResponse),
     );
     expect(dispatch).toHaveBeenCalledWith(
-      threadsReceiveActionCreator(fakeThreadsResponse)
+      threadsReceiveActionCreator(fakeThreadsResponse),
     );
     expect(dispatch).toHaveBeenCalledWith(
-      receiveLeaderBoardsActionCreator(fakeLeaderboardsResponse)
+      receiveLeaderBoardsActionCreator(fakeLeaderboardsResponse),
     );
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
@@ -78,6 +80,6 @@ describe('asyncPopulateThunkMiddleware thunk', () => {
     // assert
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
-    // expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
+    expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
   });
 });

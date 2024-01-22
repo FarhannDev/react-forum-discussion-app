@@ -1,6 +1,10 @@
 import React from 'react';
-import { describe, it, expect, afterEach, vi } from 'vitest';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import {
+  describe, it, expect, afterEach, vi,
+} from 'vitest';
+import {
+  render, screen, cleanup, fireEvent,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ThreadFormInput from '../../components/threads/ThreadFormInput';
 
@@ -29,7 +33,7 @@ describe('ThreadFormInput component', () => {
     render(<ThreadFormInput thread={() => {}} />);
 
     const categoryInput = await screen.getByPlaceholderText(
-      'Kategori Terkait cth:pertanyaan'
+      'Kategori Terkait cth:pertanyaan',
     );
     await userEvent.type(categoryInput, 'general');
 
@@ -56,7 +60,7 @@ describe('ThreadFormInput component', () => {
     await userEvent.type(titleInput, 'TESTING MENULIS THREAD PERTAMA');
 
     const categoryInput = await screen.getByPlaceholderText(
-      'Kategori Terkait cth:pertanyaan'
+      'Kategori Terkait cth:pertanyaan',
     );
     await userEvent.type(categoryInput, 'general');
 

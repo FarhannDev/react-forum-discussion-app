@@ -11,9 +11,10 @@ const receiveUsersActionCreator = (users) => ({
 const asyncRegisterUser = ({ name, email, password }) => async (dispatch) => {
   dispatch(showLoading());
   try {
-    await api.register({ name, email, password });
+    const result = await api.register({ name, email, password });
+
+    console.log(result);
   } catch (error) {
-    // alert(error.message);
     toast.error(error.message);
   }
   dispatch(hideLoading());

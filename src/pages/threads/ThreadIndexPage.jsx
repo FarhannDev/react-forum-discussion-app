@@ -30,7 +30,7 @@ export default function ThreadIndexPage() {
 
   const onKeywordChangeHandler = (keywordSearch) => {
     setKeyword(keywordSearch);
-    setSearchParams({ keywordSearch });
+    setSearchParams({ keyword: keywordSearch });
   };
 
   const threadsList = searchParams.get('keyword')

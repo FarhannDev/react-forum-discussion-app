@@ -1,6 +1,10 @@
 import React from 'react';
-import { describe, it, expect, afterEach, vi } from 'vitest';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import {
+  describe, it, expect, afterEach, vi,
+} from 'vitest';
+import {
+  render, screen, cleanup, fireEvent,
+} from '@testing-library/react';
 import CommentsFormInput from '../../components/threads/details/CommentsFormInput';
 
 /**

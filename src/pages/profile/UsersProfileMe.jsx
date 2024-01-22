@@ -92,7 +92,7 @@ export default function UsersProfileMe() {
               onClick={onLogout}
               title="Klik Disini Untuk Keluar Dari Akun"
               type="button"
-              className="btn border-0 px-0 mx-0 user-profile-subheading"
+              className="btn border-0 px-0 mx-0 user-profile-subheading logout-button"
             >
               <IoLogOutOutline fontSize={18} />
               {' '}

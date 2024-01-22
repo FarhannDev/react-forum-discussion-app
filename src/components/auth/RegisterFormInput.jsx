@@ -11,7 +11,7 @@ export default function RegisterFormInput({ register }) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPasswordChange] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const disabledButton = Boolean(name && email && password && confirmPassword);
+  // const disabledButton = Boolean(name && email && password && confirmPassword);
   const handlePasswordChange = ({ target }) => {
     setPassword(target.value);
     // Memeriksa apakah password dan konfirmasi password cocok
@@ -87,7 +87,7 @@ export default function RegisterFormInput({ register }) {
 
       <div className="d-grid gap-3 mx-auto pt-3">
         <Button
-          disabled={!disabledButton}
+          // disabled={!disabledButton}
           type="submit"
           variant="danger"
           className="rounded-pill"

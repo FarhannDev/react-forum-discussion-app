@@ -19,8 +19,10 @@ export default function RegisterPage() {
   const navigate = useNavigate();
   const handleRegister = ({ name, email, password }) => {
     dispatch(asyncRegisterUser({ name, email, password }));
+
     navigate('/');
   };
+
   return (
     <Container>
       <ReactSEOMetaTags

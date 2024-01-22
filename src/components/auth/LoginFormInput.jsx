@@ -7,7 +7,6 @@ import useInput from '../../hooks/useInput';
 export default function LoginFormInput({ login }) {
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
-  const disabledButton = Boolean(email && password);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,7 +40,6 @@ export default function LoginFormInput({ login }) {
 
       <div className="d-grid gap-3 mx-auto pt-3">
         <Button
-          disabled={!disabledButton}
           type="submit"
           variant="danger"
           className="rounded-pill"

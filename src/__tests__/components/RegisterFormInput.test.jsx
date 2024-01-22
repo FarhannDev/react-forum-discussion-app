@@ -1,5 +1,7 @@
 import React from 'react';
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import {
+  describe, it, expect, afterEach, vi,
+} from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
@@ -25,11 +27,11 @@ describe('RegisterFormInput component', () => {
     render(
       <MemoryRouter>
         <RegisterFormInput register={() => {}} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const fullnameInput = await screen.getByPlaceholderText(
-      'Masukan Nama Anda'
+      'Masukan Nama Anda',
     );
 
     await userEvent.type(fullnameInput, 'Kunti Bogel');
@@ -41,11 +43,11 @@ describe('RegisterFormInput component', () => {
     render(
       <MemoryRouter>
         <RegisterFormInput register={() => {}} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const emailAddressInput = await screen.getByPlaceholderText(
-      'Masukan Alamat Email'
+      'Masukan Alamat Email',
     );
     await userEvent.type(emailAddressInput, 'kuntibogel@gmail.com');
 
@@ -56,7 +58,7 @@ describe('RegisterFormInput component', () => {
     render(
       <MemoryRouter>
         <RegisterFormInput register={() => {}} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const passwordInput = await screen.getByPlaceholderText('Masukan Password');
@@ -70,11 +72,11 @@ describe('RegisterFormInput component', () => {
     render(
       <MemoryRouter>
         <RegisterFormInput register={() => {}} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const passwordConfirmInput = await screen.getByPlaceholderText(
-      'Konfirmasi Password'
+      'Konfirmasi Password',
     );
 
     await userEvent.type(passwordConfirmInput, 'kuntibogel');
@@ -87,15 +89,15 @@ describe('RegisterFormInput component', () => {
     render(
       <MemoryRouter>
         <RegisterFormInput register={dispatch} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     const fullnameInput = await screen.getByPlaceholderText(
-      'Masukan Nama Anda'
+      'Masukan Nama Anda',
     );
     await userEvent.type(fullnameInput, 'Kunti Bogel');
 
     const emailAddressInput = await screen.getByPlaceholderText(
-      'Masukan Alamat Email'
+      'Masukan Alamat Email',
     );
     await userEvent.type(emailAddressInput, 'kuntibogel@gmail.com');
 
@@ -103,7 +105,7 @@ describe('RegisterFormInput component', () => {
     await userEvent.type(passwordInput, 'kuntibogel');
 
     const passwordConfirmInput = await screen.getByPlaceholderText(
-      'Konfirmasi Password'
+      'Konfirmasi Password',
     );
     await userEvent.type(passwordConfirmInput, 'kuntibogel');
 

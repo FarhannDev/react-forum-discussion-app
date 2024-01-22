@@ -15,7 +15,7 @@ const asyncPopulateThunkMiddleware = () => async (dispatch) => {
     dispatch(threadsReceiveActionCreator(threads));
     dispatch(receiveLeaderBoardsActionCreator(leaderBoards));
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 
   dispatch(hideLoading());

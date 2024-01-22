@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 /* eslint-disable consistent-return */
 const api = (() => {
   const API_BASE_URL = 'https://forum-api.dicoding.dev/v1';
@@ -20,7 +21,9 @@ const api = (() => {
 
     const responseData = await response.json();
     const { status, message } = responseData;
-    if (status !== 'success') throw new Error(message);
+    if (status !== 'success') {
+      throw new Error(message);
+    }
     const {
       data: { user },
     } = responseData;
@@ -134,78 +137,52 @@ const api = (() => {
   };
 
   const getAllUsers = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/users`);
-      // Periksa apakah responsenya sukses (status code 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+    const response = await fetch(`${API_BASE_URL}/users`);
+    const responseData = await response.json();
+    const { status, message } = responseData;
+    if (status !== 'success') throw new Error(message);
+    const {
+      data: { users },
+    } = responseData;
 
-      const responseData = await response.json();
-      const {
-        data: { users },
-      } = responseData;
-
-      return users;
-    } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
-    }
+    return users;
   };
 
   const getAllThreads = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/threads`);
-      // Periksa apakah responsenya sukses (status code 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const responseData = await response.json();
-      const {
-        data: { threads },
-      } = responseData;
-      return threads;
-    } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
-    }
+    const response = await fetch(`${API_BASE_URL}/threads`);
+    const responseData = await response.json();
+    const { status, message } = responseData;
+    if (status !== 'success') throw new Error(message);
+    const {
+      data: { threads },
+    } = responseData;
+    return threads;
   };
 
   const getDetailThreads = async (threadId) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/threads/${threadId}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const responseData = await response.json();
-      const {
-        data: { detailThread },
-      } = responseData;
-      return detailThread;
-    } catch (error) {
-      console.error('Error fetching data:', error.message);
-    }
+    const response = await fetch(`${API_BASE_URL}/threads/${threadId}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const responseData = await response.json();
+    const { status, message } = responseData;
+    if (status !== 'success') throw new Error(message);
+    const {
+      data: { detailThread },
+    } = responseData;
+    return detailThread;
   };
 
   const getLeaderboards = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/leaderboards`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+    const response = await fetch(`${API_BASE_URL}/leaderboards`);
+    const responseData = await response.json();
+    const { status, message } = responseData;
+    if (status !== 'success') throw new Error(message);
+    const {
+      data: { leaderboards },
+    } = responseData;
 
-      const responseData = await response.json();
-      const {
-        data: { leaderboards },
-      } = responseData;
-
-      return leaderboards;
-    } catch (error) {
-      console.error('Terjadi kesalahan:', error.message);
-    }
+    return leaderboards;
   };
 
   const upVoteThreads = async (threadId) => {

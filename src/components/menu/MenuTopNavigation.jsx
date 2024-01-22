@@ -74,7 +74,7 @@ export default function MenuTopNavigation() {
         <button
           onClick={toggleTheme}
           type="button"
-          className="btn border-0 mx-md-2"
+          className="btn border-0 mx-md-2 color-mode-toggle"
         >
           {theme === 'dark' ? (
             <IoMoonSharp fontSize={28} color="f6f6f6" />
@@ -87,7 +87,7 @@ export default function MenuTopNavigation() {
             <img
               src={authUser?.avatar}
               alt={authUser?.name}
-              className="img-fluid rounded-pill"
+              className="img-fluid rounded-pill toggle-user-profile"
               width={40}
             />
           </Link>
