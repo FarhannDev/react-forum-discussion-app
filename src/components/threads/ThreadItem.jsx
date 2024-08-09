@@ -93,7 +93,9 @@ function ThreadCardItem({
 
             <div className="thread-card-item__action">
               <button type="button" className="btn btn-vote" title="Bagikan">
-                <IoShareSocialOutline fontSize={24} /> Bagikan
+                <IoShareSocialOutline fontSize={24} />
+                {' '}
+                Bagikan
               </button>
             </div>
           </div>
