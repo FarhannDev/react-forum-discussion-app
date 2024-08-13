@@ -8,7 +8,7 @@
  */
 describe('Login spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173');
+    cy.visit('http://localhost:5173/login');
   });
 
   // Test pertama Aplikasi harus menampilkan halaman login dengan benar.
