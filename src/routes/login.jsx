@@ -1,20 +1,19 @@
 import React from 'react';
 import loadable from '@loadable/component';
+import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
-import { asyncSetAuthUser } from '../../store/actions/authUserAction';
-import { useNavigate } from 'react-router-dom';
+import { asyncSetAuthUser } from '../store/actions/authUserAction';
 
 // Code Splitting
 const LoginFormInput = loadable(() =>
-  import('../../components/auth/LoginFormInput')
+  import('../components/auth/LoginFormInput')
 );
-const Heading = loadable(() => import('../../components/auth/Heading'));
-const SubHeading = loadable(() => import('../../components/auth/SubHeading'));
+const Heading = loadable(() => import('../components/auth/Heading'));
+const SubHeading = loadable(() => import('../components/auth/SubHeading'));
 
-export default function LoginPage() {
+export default function Login() {
   const dispatch = useDispatch();
 
   const handleLogin = ({ email, password }) => {
@@ -57,7 +56,7 @@ export default function LoginPage() {
           <Col lg={12} xl={6} md={12}>
             <div className="d-flex justify-content-center g-2 mb-4">
               <div className="d-flex flex-column pt-3">
-                <Heading title="Dicoding Forum Discussion" />
+                <Heading title="Forum Discussion" />
                 <SubHeading title=" Tempat diskusi seputar teknologi, dunia dan lainnya." />
               </div>
             </div>

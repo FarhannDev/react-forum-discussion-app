@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 import ContentEditable from 'react-contenteditable';
 import { Form, Row, Col } from 'react-bootstrap';
 import { IoSend } from 'react-icons/io5';
+import { useSelector } from 'react-redux';
 
 export default function CommentsFormInput({ comment }) {
+  const { authUser } = useSelector((states) => states);
+
   const [content, setContent] = useState('');
   const onContentHandleChange = ({ target }) => setContent(target.value);
   const disabledButton = Boolean(content);
   const handleSubmit = (event) => {
     event.preventDefault();
-    comment({ content });
+
+    if (authUser) {
+      comment({ content });
+    }
   };
 
   return (
@@ -29,7 +35,7 @@ export default function CommentsFormInput({ comment }) {
               />
 
               <button
-                disabled={!disabledButton}
+                disabled={!disabledButton || !authUser}
                 className="btn border-0 comments-btn-send"
                 type="submit"
                 title="Kirimkan"

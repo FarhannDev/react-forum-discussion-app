@@ -15,6 +15,7 @@ import {
   toggleClearVoteComment,
 } from '../../../store/actions/detailThreadAction';
 import '../../../assets/styles/thread-card-item.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function ThreadButtonVoteComment({
   commentId,
@@ -23,22 +24,35 @@ export default function ThreadButtonVoteComment({
 }) {
   const { authUser } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleVote = () => {
-    toast.info('Kamu menyukai diskusi ini!');
-    dispatch(toggleUpVoteComment(commentId));
+    if (authUser) {
+      toast.info('Kamu menyukai diskusi ini!');
+      dispatch(toggleUpVoteComment(commentId));
+    } else {
+      navigate('/login');
+    }
   };
   const handleDownVote = () => {
-    toast.info('Kamu batal menyukai diskusi ini!');
-    dispatch(toggleDownVoteComment(commentId));
+    if (authUser) {
+      toast.info('Kamu batal menyukai diskusi ini!');
+      dispatch(toggleDownVoteComment(commentId));
+    } else {
+      navigate('/login');
+    }
   };
   const handleClearVote = () => {
-    toast.info('Kamu batal menyukai diskusi ini!');
-    dispatch(toggleClearVoteComment(commentId));
+    if (authUser) {
+      toast.info('Kamu batal menyukai diskusi ini!');
+      dispatch(toggleClearVoteComment(commentId));
+    } else {
+      navigate('/login');
+    }
   };
 
-  const isVotes = upVote.find((vote) => vote === authUser.id);
-  const isUnvotes = downVote.find((unvote) => unvote === authUser.id);
+  const isVotes = upVote.find((vote) => vote === authUser?.id);
+  const isUnvotes = downVote.find((unvote) => unvote === authUser?.id);
 
   return (
     <div className="d-flex flex-wrap">

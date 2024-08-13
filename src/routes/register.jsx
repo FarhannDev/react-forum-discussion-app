@@ -1,24 +1,26 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
-import { Helmet } from 'react-helmet';
-import { asyncSetAuthUser } from '../../store/actions/authUserAction';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { asyncRegisterUser } from '../store/actions/usersAction';
 
-// Code Splitting
-const LoginFormInput = loadable(() =>
-  import('../../components/auth/LoginFormInput')
+// Code Spiltting
+const RegisterFormInput = loadable(() =>
+  import('../components/auth/RegisterFormInput')
 );
-const Heading = loadable(() => import('../../components/auth/Heading'));
-const SubHeading = loadable(() => import('../../components/auth/SubHeading'));
+const Heading = loadable(() => import('../components/auth/Heading'));
+const SubHeading = loadable(() => import('../components/auth/SubHeading'));
 
-export default function LoginPage() {
+export default function Register() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleRegister = ({ name, email, password }) => {
+    dispatch(asyncRegisterUser({ name, email, password }));
 
-  const handleLogin = ({ email, password }) => {
-    dispatch(asyncSetAuthUser({ email, password }));
+    navigate('/login');
   };
 
   return (
@@ -27,7 +29,7 @@ export default function LoginPage() {
         render={(el) => <Helmet>{el}</Helmet>}
         website={{
           url: 'http://localhost:5173/',
-          title: 'Masuk Ke Akun ',
+          title: 'Mendaftar Akun',
           datePublished: new Date().toISOString(),
           description:
             'Proyek: Membangun Aplikasi React dengan Redux          ',
@@ -43,9 +45,8 @@ export default function LoginPage() {
           },
         }}
       />
-
       <Card body className="auth-card-container">
-        <Row className="justify-content-start align-self-center align-items-center g-3 py-3">
+        <Row className="justify-content-start align-self-center align-items-center g-3">
           <Col lg={12} xl={6} md={12}>
             <img
               src="/images/free_epik_auth_background.png"
@@ -57,12 +58,11 @@ export default function LoginPage() {
           <Col lg={12} xl={6} md={12}>
             <div className="d-flex justify-content-center g-2 mb-4">
               <div className="d-flex flex-column pt-3">
-                <Heading title="Dicoding Forum Discussion" />
+                <Heading title="Forum Discussion" />
                 <SubHeading title=" Tempat diskusi seputar teknologi, dunia dan lainnya." />
               </div>
             </div>
-
-            <LoginFormInput login={handleLogin} />
+            <RegisterFormInput register={handleRegister} />
           </Col>
         </Row>
       </Card>

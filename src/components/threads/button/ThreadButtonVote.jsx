@@ -13,27 +13,42 @@ import {
   asyncAddThreadsDownVote,
   asyncAddThreadsNeutralVote,
 } from '../../../store/actions/threadsAction';
+import { useNavigate } from 'react-router-dom';
 
 export default function ThreadButtonVote({ threadId, upVotes, downVotes }) {
   const { authUser } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUpVote = () => {
-    toast.info('Kamu menyukai diskusi ini!');
-    dispatch(asyncAddThreadsUpVote(threadId));
+    if (authUser) {
+      toast.info('Kamu menyukai diskusi ini!');
+      dispatch(asyncAddThreadsUpVote(threadId));
+    } else {
+      navigate('/login');
+    }
   };
 
   const handleDownVote = () => {
-    toast.info('Kamu batal menyukai diskusi ini!');
-    dispatch(asyncAddThreadsDownVote(threadId));
-  };
-  const handleClearVote = () => {
-    toast.info('Kamu batal menyukai diskusi ini!');
-    dispatch(asyncAddThreadsNeutralVote(threadId));
+    if (authUser) {
+      toast.info('Kamu batal menyukai diskusi ini!');
+      dispatch(asyncAddThreadsDownVote(threadId));
+    } else {
+      navigate('/login');
+    }
   };
 
-  const isVotes = upVotes.find((vote) => vote === authUser.id);
-  const isUnvotes = downVotes.find((unvote) => unvote === authUser.id);
+  const handleClearVote = () => {
+    if (authUser) {
+      toast.info('Kamu batal menyukai diskusi ini!');
+      dispatch(asyncAddThreadsNeutralVote(threadId));
+    } else {
+      navigate('/login');
+    }
+  };
+
+  const isVotes = upVotes.find((vote) => vote === authUser?.id);
+  const isUnvotes = downVotes.find((unvote) => unvote === authUser?.id);
 
   return (
     <div className="thread-card-item__action me-2">

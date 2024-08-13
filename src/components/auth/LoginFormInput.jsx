@@ -51,8 +51,7 @@ export default function LoginFormInput({ login }) {
 
       <div className="d-flex justify-content-center py-4">
         <div>
-          <span className="auth-form-label">Belum punya akun?</span>
-          {' '}
+          <span className="auth-form-label">Belum punya akun?</span>{' '}
           <Link
             className="auth-form-label text-decoration-underline"
             to="/register"

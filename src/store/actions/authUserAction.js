@@ -12,25 +12,34 @@ const unsetAuthUserActionCreator = () => ({
   type: ActionType.SET_UNSET_AUTH_USER,
 });
 
-const asyncSetAuthUser = ({ email, password }) => async (dispatch) => {
-  dispatch(showLoading());
+const asyncSetAuthUser =
+  ({ email, password }) =>
+  async (dispatch) => {
+    dispatch(showLoading());
 
-  try {
-    const token = await api.login({ email, password });
-    api.putAccessToken(token);
+    try {
+      const token = await api.login({ email, password });
+      api.putAccessToken(token);
 
-    const authUser = await api.getOwnProfile();
-    dispatch(setAuthUserActionCreator(authUser));
-  } catch (error) {
-    toast.error(error.message);
-  }
-  dispatch(hideLoading());
-};
+      const authUser = await api.getOwnProfile();
+
+      if (authUser) {
+        dispatch(setAuthUserActionCreator(authUser));
+        alert('Anda berhasil login');
+        window.location.href = '/onboarding';
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+    dispatch(hideLoading());
+  };
 
 const asyncUnsetAuthUser = () => (dispatch) => {
   dispatch(unsetAuthUserActionCreator());
 
   api.putAccessToken('');
+
+  window.location.href = '/login';
 };
 
 export {

@@ -27,28 +27,30 @@ const addThreadsNeutralVoteActionCreator = ({ threadId, userId }) => ({
   payload: { threadId, userId },
 });
 
-const asyncAddThread = ({ title, body, category = '' }) => async (dispatch) => {
-  dispatch(showLoading());
-  try {
-    const thread = await api.createThreads({ title, body, category });
-    dispatch(addThreadActionCreator(thread));
-  } catch (error) {
-    console.log(error.message);
-  }
+const asyncAddThread =
+  ({ title, body, category = '' }) =>
+  async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      const thread = await api.createThreads({ title, body, category });
+      dispatch(addThreadActionCreator(thread));
+    } catch (error) {
+      console.log(error.message);
+    }
 
-  dispatch(hideLoading());
-};
+    dispatch(hideLoading());
+  };
 
 const asyncAddThreadsUpVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
-  dispatch(addThreadsUpVoteActionCreator({ threadId, userId: authUser.id }));
+  dispatch(addThreadsUpVoteActionCreator({ threadId, userId: authUser?.id }));
   dispatch(showLoading());
 
   try {
     await api.upVoteThreads(threadId);
   } catch (error) {
     console.log(error.message);
-    dispatch(addThreadsUpVoteActionCreator({ threadId, userId: authUser.id }));
+    dispatch(addThreadsUpVoteActionCreator({ threadId, userId: authUser?.id }));
   }
 
   dispatch(hideLoading());
@@ -56,7 +58,7 @@ const asyncAddThreadsUpVote = (threadId) => async (dispatch, getState) => {
 
 const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
-  dispatch(addThreadsDownVoteActionCreator({ threadId, userId: authUser.id }));
+  dispatch(addThreadsDownVoteActionCreator({ threadId, userId: authUser?.id }));
   dispatch(showLoading());
 
   try {
@@ -64,7 +66,7 @@ const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
   } catch (error) {
     console.log(error.message);
     dispatch(
-      addThreadsDownVoteActionCreator({ threadId, userId: authUser.id }),
+      addThreadsDownVoteActionCreator({ threadId, userId: authUser?.id })
     );
   }
 
@@ -74,7 +76,7 @@ const asyncAddThreadsDownVote = (threadId) => async (dispatch, getState) => {
 const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
   const { authUser } = getState();
   dispatch(
-    addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id }),
+    addThreadsNeutralVoteActionCreator({ threadId, userId: authUser?.id })
   );
 
   dispatch(showLoading());
@@ -83,7 +85,7 @@ const asyncAddThreadsNeutralVote = (threadId) => async (dispatch, getState) => {
   } catch (error) {
     console.log(error.message);
     dispatch(
-      addThreadsNeutralVoteActionCreator({ threadId, userId: authUser.id }),
+      addThreadsNeutralVoteActionCreator({ threadId, userId: authUser?.id })
     );
   }
 
