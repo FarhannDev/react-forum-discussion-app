@@ -1,18 +1,15 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FiHome } from 'react-icons/fi';
 import { IoSearchOutline, IoMedalOutline } from 'react-icons/io5';
 import { FaRegPenToSquare } from 'react-icons/fa6';
-import { useSelector } from 'react-redux';
-import { useTheme } from '../../hooks/useTheme';
 import { FaRegUserCircle } from 'react-icons/fa';
 import '../../assets/styles/menu-top-navigation.css';
 
 export default function MenuBottomNavigation() {
-  const { authUser } = useSelector((states) => states);
-  const { theme, toggleTheme } = useTheme();
-
   const menu = [
     {
       title: 'Beranda',
@@ -41,18 +38,17 @@ export default function MenuBottomNavigation() {
     },
   ];
 
-  const MenuItem = () =>
-    menu.map((menu, idx) => (
-      <Link
-        key={idx}
-        to={menu.link}
-        className="d-flex justify-content-center align-item-center mx-md-5 mx-3  nav-link"
-        title={menu.title}
-      >
-        {/* <FiHome fontSize={26} /> */}
-        {menu.icons}
-      </Link>
-    ));
+  const MenuItem = () => menu.map((menu, idx) => (
+    <Link
+      key={idx}
+      to={menu.link}
+      className="d-flex justify-content-center align-item-center mx-md-5 mx-3  nav-link"
+      title={menu.title}
+    >
+      {/* <FiHome fontSize={26} /> */}
+      {menu.icons}
+    </Link>
+  ));
 
   return (
     <Navbar fixed="bottom" expanded>

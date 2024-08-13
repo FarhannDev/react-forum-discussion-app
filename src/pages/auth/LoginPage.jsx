@@ -1,16 +1,15 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import {
+  Container, Row, Col, Card,
+} from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
 import { asyncSetAuthUser } from '../../store/actions/authUserAction';
-import { useNavigate } from 'react-router-dom';
 
 // Code Splitting
-const LoginFormInput = loadable(() =>
-  import('../../components/auth/LoginFormInput')
-);
+const LoginFormInput = loadable(() => import('../../components/auth/LoginFormInput'));
 const Heading = loadable(() => import('../../components/auth/Heading'));
 const SubHeading = loadable(() => import('../../components/auth/SubHeading'));
 

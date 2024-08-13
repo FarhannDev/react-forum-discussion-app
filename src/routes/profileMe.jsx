@@ -15,13 +15,9 @@ import { asyncUnsetAuthUser } from '../store/actions/authUserAction';
 import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMiddleware';
 import '../assets/styles/user-profile.css';
 // Code Splitting
-const ContentHeading = loadable(() =>
-  import('../components/common/ContentHeading')
-);
+const ContentHeading = loadable(() => import('../components/common/ContentHeading'));
 const ThreadsList = loadable(() => import('../components/threads/ThreadsList'));
-const CommentsIsEmpty = loadable(() =>
-  import('../components/threads/details/CommentsIsEmpty')
-);
+const CommentsIsEmpty = loadable(() => import('../components/threads/details/CommentsIsEmpty'));
 
 export default function ProfileMe() {
   const dispatch = useDispatch();
@@ -87,7 +83,8 @@ export default function ProfileMe() {
           </div>
           <div className="user-profile-subheading">
             <IoTimeOutline fontSize={16} className="me-2" />
-            Bergabung Sejak 2023{' '}
+            Bergabung Sejak 2023
+            {' '}
           </div>
 
           <div>
@@ -97,7 +94,9 @@ export default function ProfileMe() {
               type="button"
               className="btn border-0 px-0 mx-0 user-profile-subheading logout-button"
             >
-              <IoLogOutOutline fontSize={18} /> Keluar
+              <IoLogOutOutline fontSize={18} />
+              {' '}
+              Keluar
             </button>
           </div>
         </div>

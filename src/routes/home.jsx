@@ -26,14 +26,13 @@ export default function Home() {
   const filteredThreads = !selectedOption
     ? threadsList
     : threadsList?.filter((thread) => {
-        const { label } = selectedOption;
-        return thread.category === label;
-      });
+      const { label } = selectedOption;
+      return thread.category === label;
+    });
 
   const options = threadsList
     ?.filter(
-      (value, index, self) =>
-        index === self.findIndex((obj) => obj.category === value.category)
+      (value, index, self) => index === self.findIndex((obj) => obj.category === value.category),
     )
     .map((thread) => ({
       value: thread.id,

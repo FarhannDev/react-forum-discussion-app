@@ -8,12 +8,12 @@ import {
   IoThumbsDown,
   IoThumbsUp,
 } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 import {
   asyncAddThreadsUpVote,
   asyncAddThreadsDownVote,
   asyncAddThreadsNeutralVote,
 } from '../../../store/actions/threadsAction';
-import { useNavigate } from 'react-router-dom';
 
 export default function ThreadButtonVote({ threadId, upVotes, downVotes }) {
   const { authUser } = useSelector((state) => state);

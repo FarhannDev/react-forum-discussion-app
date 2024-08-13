@@ -1,7 +1,7 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {
   IoThumbsUpOutline,
@@ -15,7 +15,6 @@ import {
   toggleClearVoteComment,
 } from '../../../store/actions/detailThreadAction';
 import '../../../assets/styles/thread-card-item.css';
-import { useNavigate } from 'react-router-dom';
 
 export default function ThreadButtonVoteComment({
   commentId,

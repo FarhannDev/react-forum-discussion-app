@@ -1,57 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { FiHome } from 'react-icons/fi';
-import {
-  IoSearchOutline,
-  IoMedalOutline,
-  IoSunnyOutline,
-  IoMoonSharp,
-} from 'react-icons/io5';
-import { FaRegPenToSquare } from 'react-icons/fa6';
-import { useSelector } from 'react-redux';
+import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5';
+
 import { useTheme } from '../../hooks/useTheme';
 import '../../assets/styles/menu-top-navigation.css';
 
 export default function MenuTopNavigation() {
-  const { authUser } = useSelector((states) => states);
   const { theme, toggleTheme } = useTheme();
 
-  const menu = [
-    {
-      title: 'Beranda',
-      icons: <FiHome fontSize={28} />,
-      link: '/',
-    },
-    {
-      title: 'Search Thread',
-      icons: <IoSearchOutline fontSize={28} />,
-      link: '/search',
-    },
-    {
-      title: 'Buat Pertanyaan Baru',
-      icons: <FaRegPenToSquare fontSize={28} />,
-      link: '/threads/new',
-    },
-    {
-      title: 'Papan Peringkat',
-      icons: <IoMedalOutline fontSize={28} />,
-      link: '/leaderboards',
-    },
-  ];
+  // const menu = [
+  //   {
+  //     title: 'Beranda',
+  //     icons: <FiHome fontSize={28} />,
+  //     link: '/',
+  //   },
+  //   {
+  //     title: 'Search Thread',
+  //     icons: <IoSearchOutline fontSize={28} />,
+  //     link: '/search',
+  //   },
+  //   {
+  //     title: 'Buat Pertanyaan Baru',
+  //     icons: <FaRegPenToSquare fontSize={28} />,
+  //     link: '/threads/new',
+  //   },
+  //   {
+  //     title: 'Papan Peringkat',
+  //     icons: <IoMedalOutline fontSize={28} />,
+  //     link: '/leaderboards',
+  //   },
+  // ];
 
-  const MenuItem = () =>
-    menu.map((menu, idx) => (
-      <Link
-        key={idx}
-        to={menu.link}
-        className="mx-md-3  nav-link"
-        title={menu.title}
-      >
-        {/* <FiHome fontSize={26} /> */}
-        {menu.icons}
-      </Link>
-    ));
+  // const MenuItem = () => menu.map((menu, idx) => (
+  //   <Link
+  //     key={idx}
+  //     to={menu.link}
+  //     className="mx-md-3  nav-link"
+  //     title={menu.title}
+  //   >
+  //     {/* <FiHome fontSize={26} /> */}
+  //     {menu.icons}
+  //   </Link>
+  // ));
 
   return (
     <Navbar expand="lg" fixed="top">

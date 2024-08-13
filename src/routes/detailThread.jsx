@@ -1,17 +1,13 @@
 import React, { useEffect } from 'react';
 import loadable from '@loadable/component';
-import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { asyncReceiveThreadsDetail } from '../store/actions/detailThreadAction';
 
 // Code Splitting
 
-const ThreadDetail = loadable(() =>
-  import('../components/threads/ThreadDetail')
-);
+const ThreadDetail = loadable(() => import('../components/threads/ThreadDetail'));
 
 export default function DetailThread() {
   const { id } = useParams();

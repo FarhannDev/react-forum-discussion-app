@@ -13,17 +13,13 @@ const Home = loadable(() => import('./pages/HomePage'));
 const ThreadIndex = loadable(() => import('./pages/threads/ThreadIndexPage'));
 const ThreadAdd = loadable(() => import('./pages/threads/ThreadNewPage'));
 const ThreadDetail = loadable(() => import('./pages/threads/ThreadDetailPage'));
-const LeaderboardIndex = loadable(() =>
-  import('./pages/leaderboards/LeaderBoardIndexPage')
-);
-const NotificationIndex = loadable(() =>
-  import('./pages/notifications/NotificationIndexPage')
-);
+const LeaderboardIndex = loadable(() => import('./pages/leaderboards/LeaderBoardIndexPage'));
+const NotificationIndex = loadable(() => import('./pages/notifications/NotificationIndexPage'));
 const UserProfileMe = loadable(() => import('./pages/profile/UsersProfileMe'));
 const UserProfileUser = loadable(() => import('./pages/profile/UsersProfile'));
 
 export default function App() {
-  const { authUser, isPreload = false } = useSelector((states) => states);
+  const { isPreload = false } = useSelector((states) => states);
   const dispatch = useDispatch();
 
   useEffect(() => {

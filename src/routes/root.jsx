@@ -7,9 +7,7 @@ import { asyncPreloadProcess } from '../store/actions/isPreloadAction';
 import MenuBottomNavigation from '../components/menu/MenuBottomNavigation';
 
 // Code Splitting
-const MenuTopNavigation = loadable(() =>
-  import('../components/menu/MenuTopNavigation')
-);
+const MenuTopNavigation = loadable(() => import('../components/menu/MenuTopNavigation'));
 const Loading = loadable(() => import('../components/common/Loading'));
 
 export default function Root() {

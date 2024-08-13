@@ -1,8 +1,5 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { FaHouseChimney } from 'react-icons/fa6';
 import ContentHeading from './ContentHeading';
 
 export default function ErrorNotFound({ title = 'Halaman Tidak Ditemukan' }) {

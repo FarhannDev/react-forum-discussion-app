@@ -4,9 +4,7 @@ import MenuTopNavigation from '../components/menu/MenuTopNavigation';
 import MenuBottomNavigation from '../components/menu/MenuBottomNavigation';
 
 // Code Splitting
-const ErrorNotFound = loadable(() =>
-  import('../components/common/ErrorNotFound')
-);
+const ErrorNotFound = loadable(() => import('../components/common/ErrorNotFound'));
 
 export default function ErrorPage() {
   return (

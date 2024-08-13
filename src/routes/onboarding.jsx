@@ -4,9 +4,7 @@ import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Container } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 
-const NotificationWelcome = loadable(() =>
-  import('../components/notifications/NotificationWelcome')
-);
+const NotificationWelcome = loadable(() => import('../components/notifications/NotificationWelcome'));
 
 export default function Onboarding() {
   return (

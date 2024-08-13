@@ -9,9 +9,7 @@ import { Helmet } from 'react-helmet';
 import { asyncAddThread } from '../store/actions/threadsAction';
 
 // Code Splitting
-const ThreadFormInput = loadable(() =>
-  import('../components/threads/ThreadFormInput')
-);
+const ThreadFormInput = loadable(() => import('../components/threads/ThreadFormInput'));
 
 export default function ThredNew() {
   const { authUser } = useSelector((states) => states);

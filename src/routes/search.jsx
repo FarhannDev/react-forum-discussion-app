@@ -11,19 +11,15 @@ import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMidd
 // Code Splitting
 
 const ThreadsList = loadable(() => import('../components/threads/ThreadsList'));
-const ContentHeading = loadable(() =>
-  import('../components/common/ContentHeading')
-);
+const ContentHeading = loadable(() => import('../components/common/ContentHeading'));
 const SearchBar = loadable(() => import('../components/common/SearchBar'));
-const SearchBarEmpty = loadable(() =>
-  import('../components/common/SearchBarEmpty')
-);
+const SearchBarEmpty = loadable(() => import('../components/common/SearchBarEmpty'));
 
 export default function SearchThread() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { threads, users } = useSelector((state) => state);
   const [keyword, setKeyword] = useState(
-    () => searchParams.get('keyword') || ''
+    () => searchParams.get('keyword') || '',
   );
 
   const dispatch = useDispatch();
@@ -39,13 +35,11 @@ export default function SearchThread() {
 
   const threadsList = searchParams.get('keyword')
     ? threads
-        ?.filter((filteredData) =>
-          filteredData.title.toLowerCase().includes(keyword.toLowerCase())
-        )
-        .map((thread) => ({
-          ...thread,
-          user: users?.find((user) => user.id === thread.ownerId),
-        }))
+      ?.filter((filteredData) => filteredData.title.toLowerCase().includes(keyword.toLowerCase()))
+      .map((thread) => ({
+        ...thread,
+        user: users?.find((user) => user.id === thread.ownerId),
+      }))
     : null;
 
   return (
@@ -82,7 +76,7 @@ export default function SearchThread() {
         <>
           <ContentHeading
             title={`${threadsList.length} Hasil Pencarian ${searchParams.get(
-              'keyword'
+              'keyword',
             )}`}
           />
           <ThreadsList threads={threadsList} />
