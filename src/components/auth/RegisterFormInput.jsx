@@ -101,7 +101,7 @@ export default function RegisterFormInput({ register }) {
         <div>
           <span className="auth-form-label">Sudah punya akun?</span>
           {' '}
-          <Link className="auth-form-label text-decoration-underline" to="/">
+          <Link className="auth-form-label text-decoration-underline" to="/login">
             Login Disini!
           </Link>
         </div>

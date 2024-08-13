@@ -20,7 +20,12 @@ const asyncSetAuthUser = ({ email, password }) => async (dispatch) => {
     api.putAccessToken(token);
 
     const authUser = await api.getOwnProfile();
-    dispatch(setAuthUserActionCreator(authUser));
+
+    if (authUser) {
+      dispatch(setAuthUserActionCreator(authUser));
+      alert('Anda berhasil login');
+      window.location.href = '/onboarding';
+    }
   } catch (error) {
     toast.error(error.message);
   }
@@ -31,6 +36,8 @@ const asyncUnsetAuthUser = () => (dispatch) => {
   dispatch(unsetAuthUserActionCreator());
 
   api.putAccessToken('');
+
+  window.location.href = '/login';
 };
 
 export {

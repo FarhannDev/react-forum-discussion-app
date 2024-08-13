@@ -54,7 +54,7 @@
   color: var(--Font-600, #5d5d5d);
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 125% */
@@ -81,7 +81,7 @@
   color: var(--Font-600, #5d5d5d);
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px; /* 125% */
@@ -99,7 +99,7 @@
   color: var(--Font-600, #5d5d5d);
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px; /* 125% */
@@ -117,7 +117,7 @@
   color: var(--Font-600, #5d5d5d);
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 125% */

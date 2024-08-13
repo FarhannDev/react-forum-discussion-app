@@ -8,6 +8,7 @@ import {
   IoThumbsDown,
   IoThumbsUp,
 } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 import {
   asyncToggleUpVoteThreadDetail,
   asyncToggleDownVoteThreadDetail,
@@ -17,23 +18,36 @@ import {
 export default function ThreadButtonVoteDetail({ upVotes, downVotes }) {
   const { authUser } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUpVote = () => {
-    toast.info('Kamu menyukai diskusi ini!');
-    dispatch(asyncToggleUpVoteThreadDetail());
+    if (authUser) {
+      toast.info('Kamu menyukai diskusi ini!');
+      dispatch(asyncToggleUpVoteThreadDetail());
+    } else {
+      navigate('/login');
+    }
   };
 
   const handleDownVote = () => {
-    toast.info('Kamu batal menyukai diskusi ini!');
-    dispatch(asyncToggleDownVoteThreadDetail());
+    if (authUser) {
+      toast.info('Kamu batal menyukai diskusi ini!');
+      dispatch(asyncToggleDownVoteThreadDetail());
+    } else {
+      navigate('/login');
+    }
   };
   const handleClearVote = () => {
-    toast.info('Kamu batal menyukai diskusi ini!');
-    dispatch(asyncToggleClearVoteThreadDetail());
+    if (authUser) {
+      toast.info('Kamu batal menyukai diskusi ini!');
+      dispatch(asyncToggleClearVoteThreadDetail());
+    } else {
+      navigate('/login');
+    }
   };
 
-  const isVotes = upVotes.find((vote) => vote === authUser.id);
-  const isUnvotes = downVotes.find((unvote) => unvote === authUser.id);
+  const isVotes = upVotes.find((vote) => vote === authUser?.id);
+  const isUnvotes = downVotes.find((unvote) => unvote === authUser?.id);
 
   return (
     <div className="thread-card-item__action me-2">

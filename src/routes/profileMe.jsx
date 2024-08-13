@@ -11,24 +11,18 @@ import {
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
 import loadable from '@loadable/component';
-import { asyncUnsetAuthUser } from '../../store/actions/authUserAction';
-import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
-import '../../assets/styles/user-profile.css';
+import { asyncUnsetAuthUser } from '../store/actions/authUserAction';
+import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMiddleware';
+import '../assets/styles/user-profile.css';
 // Code Splitting
-const ContentHeading = loadable(() => import('../../components/common/ContentHeading'));
-const ThreadsList = loadable(() => import('../../components/threads/ThreadsList'));
-const CommentsIsEmpty = loadable(() => import('../../components/threads/details/CommentsIsEmpty'));
+const ContentHeading = loadable(() => import('../components/common/ContentHeading'));
+const ThreadsList = loadable(() => import('../components/threads/ThreadsList'));
+const CommentsIsEmpty = loadable(() => import('../components/threads/details/CommentsIsEmpty'));
 
-export default function UsersProfileMe() {
+export default function ProfileMe() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { users, threads, authUser } = useSelector((state) => state);
-
-  useEffect(() => {
-    if (!authUser) {
-      navigate('/login');
-    }
-  }, [authUser, navigate]);
 
   useEffect(() => {
     dispatch(asyncPopulateThunkMiddleware());
@@ -80,12 +74,12 @@ export default function UsersProfileMe() {
           <div className="user-profile-title ">
             {' '}
             <IoPersonOutline fontSize={16} className="me-2" />
-            {authUser?.name}
+            {authUser.name}
           </div>
           <div className="user-profile-subheading">
             {' '}
             <IoMailOpenOutline fontSize={16} className="me-2" />
-            {authUser?.email}
+            {authUser.email}
           </div>
           <div className="user-profile-subheading">
             <IoTimeOutline fontSize={16} className="me-2" />

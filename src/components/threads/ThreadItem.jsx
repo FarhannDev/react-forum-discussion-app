@@ -34,7 +34,7 @@ function ThreadCardItem({
         <div className="thread-card-item__user">
           <div className="d-flex  justify-content-start align-content-start">
             <Link
-              to={`/users/${user?.id}`}
+              to={`/profile/${user?.id}`}
               aria-label={`Profile ${user?.name}`}
               title={`Profile ${user?.name}`}
             >
@@ -47,7 +47,7 @@ function ThreadCardItem({
 
             <div className="d-flex flex-column">
               <Link
-                to={`/users/${user?.id}`}
+                to={`/profile/${user?.id}`}
                 className="link-offset-2 link-underline link-underline-opacity-0 thread-card-item__user-name"
                 aria-label={`Profile ${user?.name}`}
                 title={`Profile ${user?.name}`}
@@ -68,7 +68,7 @@ function ThreadCardItem({
     return (
       <>
         <Stack direction="vertical" gap={3}>
-          <Link to={`/threads/${id}`} className="thread-card-item__title">
+          <Link to={`/thread/${id}`} className="thread-card-item__title">
             {parse(title)}
           </Link>
           <div className="thread-card-item__body">
@@ -91,13 +91,11 @@ function ThreadCardItem({
               </button>
             </div>
 
-            <div className="thread-card-item__action">
+            {/* <div className="thread-card-item__action">
               <button type="button" className="btn btn-vote" title="Bagikan">
-                <IoShareSocialOutline fontSize={24} />
-                {' '}
-                Bagikan
+                <IoShareSocialOutline fontSize={24} /> Bagikan
               </button>
-            </div>
+            </div> */}
           </div>
         </Stack>
       </>

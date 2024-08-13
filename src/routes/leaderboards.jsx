@@ -5,15 +5,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container, Card } from 'react-bootstrap';
 import ReactSEOMetaTags from 'react-seo-meta-tags';
 import { Helmet } from 'react-helmet';
-import asyncPopulateThunkMiddleware from '../../store/shared/asyncPopulateThunkMiddleware';
-import '../../assets/styles/leaderboards.css';
+import asyncPopulateThunkMiddleware from '../store/shared/asyncPopulateThunkMiddleware';
+import '../assets/styles/leaderboards.css';
 
 // Code Splitting
-const ContentHeading = loadable(() => import('../../components/common/ContentHeading'));
-const LeaderBoardList = loadable(() => import('../../components/leaderboards/LeaderBoardList'));
-const LeaderBoardSelected = loadable(() => import('../../components/leaderboards/LeaderBoardSelected'));
+const ContentHeading = loadable(() => import('../components/common/ContentHeading'));
+const LeaderBoardList = loadable(() => import('../components/leaderboards/LeaderBoardList'));
+// const LeaderBoardSelected = loadable(() =>
+//   import('../components/leaderboards/LeaderBoardSelected')
+// );
 
-export default function LeaderBoardIndexPage() {
+export default function LeaderBoard() {
   const { leaderBoards } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState('');
@@ -22,9 +24,9 @@ export default function LeaderBoardIndexPage() {
     dispatch(asyncPopulateThunkMiddleware());
   }, [dispatch]);
 
-  const handleFilterChange = (e) => {
-    setSelectedFilter(e.target.value);
-  };
+  // const handleFilterChange = (e) => {
+  //   setSelectedFilter(e.target.value);
+  // };
 
   const filterData = () => {
     if (selectedFilter === 'highest') {
@@ -67,8 +69,8 @@ export default function LeaderBoardIndexPage() {
       <Card body className="leaderboards-card-item">
         <ContentHeading title="Klasemen Pengguna Aktif" />
         <hr />
-
-        {/* <LeaderBoardSelected
+        {/*
+        <LeaderBoardSelected
           selectedFilter={selectedFilter}
           setSelectedFilter={handleFilterChange}
         /> */}

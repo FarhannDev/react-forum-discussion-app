@@ -6,7 +6,6 @@ import { asyncPreloadProcess } from './store/actions/isPreloadAction';
 
 // Code Splitting
 const AppLayout = loadable(() => import('./layouts/AppLayout'));
-const AuthLayout = loadable(() => import('./layouts/AuthLayout'));
 const Login = loadable(() => import('./pages/auth/LoginPage'));
 const Register = loadable(() => import('./pages/auth/RegisterPage'));
 const ErrorPage = loadable(() => import('./pages/ErrorPage'));
@@ -20,7 +19,7 @@ const UserProfileMe = loadable(() => import('./pages/profile/UsersProfileMe'));
 const UserProfileUser = loadable(() => import('./pages/profile/UsersProfile'));
 
 export default function App() {
-  const { authUser, isPreload = false } = useSelector((states) => states);
+  const { isPreload = false } = useSelector((states) => states);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,23 +31,13 @@ export default function App() {
     return null;
   }
 
-  const publicRoute = (
-    <AuthLayout>
-      <Routes>
-        <Route path="/">
-          <Route index element={<Login />} />
-          <Route path="/register" element={<Register />} />
-
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    </AuthLayout>
-  );
-
-  const privateRoute = (
+  const appRoutes = (
     <AppLayout>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index path="/" element={<Home />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route path="/threads" element={<ThreadIndex />} />
         <Route path="/threads/:id" element={<ThreadDetail />} />
@@ -56,7 +45,7 @@ export default function App() {
 
         <Route path="/leaderboards" element={<LeaderboardIndex />} />
 
-        <Route path="/notifications" element={<NotificationIndex />} />
+        <Route path="/onboarding" element={<NotificationIndex />} />
         <Route path="/users">
           <Route path=":id" element={<UserProfileUser />} />
           <Route path="me" element={<UserProfileMe />} />
@@ -67,5 +56,5 @@ export default function App() {
     </AppLayout>
   );
 
-  return !authUser ? publicRoute : privateRoute;
+  return appRoutes;
 }

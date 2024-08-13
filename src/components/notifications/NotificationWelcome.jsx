@@ -22,7 +22,7 @@ export default function NotificationWelcome() {
         <ContentHeading title="Tempat diskusi seputar teknologi, dunia dan lainnya." />
 
         <Link
-          to="/threads/new"
+          to="/thread/new"
           aria-label="Menuju halaman forum diskusi"
           className="btn btn-danger btn-md rounded-pill"
         >

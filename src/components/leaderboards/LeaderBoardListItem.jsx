@@ -20,13 +20,13 @@ export default function LeaderBoardListItem({ user, score }) {
               />
 
               <Link
-                to={`/users/${user.id}`}
+                to={`/profile/${user?.id}`}
                 aria-label=""
                 className="leaderboard-list-item__user-name px-3 pt-2"
               >
                 {user?.name}
                 <i className="fst-italic fw-bold">
-                  {user.id === authUser.id ? '(Anda)' : ''}
+                  {user.id === authUser?.id ? '(Anda)' : ''}
                 </i>
               </Link>
             </div>
